@@ -1,6 +1,50 @@
 # Project instructions
 
-## Current phase: Phase 1 CPU/mock engineering (2026-09-27 authorization)
+## Current phase: Phase 2 bounded GPU feasibility (2026-09-27 authorization)
+
+Latest authorization: ONE FINAL Moondream2 language diagnostic, explicitly approved by user.
+Run language-final-20260927; exact two prompts and criteria frozen in
+docs/PHASE2_LANGUAGE_FINAL_AMENDMENT_2026-09-27.md. Same original query behavior, model,
+fixture and limits; no extra prompt search, retries, translator/OpenCC or fallback execution.
+Preserve previous outcomes below. Stop all Moondream2 language tuning after this run.
+
+Final language attempt is CONSUMED: English control PASS; English instruction requesting
+Traditional Chinese FAIL (English-only answer); cleanup PASS, zero allocated/reserved.
+MOONDREAM2 DIRECT TRADITIONAL CHINESE OUTPUT = REPRODUCIBLE BLOCKER for tested setup.
+Recommend EVALUATE FALLBACK VLM (user priority: OpenGVLab/InternVL3-2B-Instruct), but no
+fallback download/load/integration authorized. No more Moondream2 language tuning.
+See docs/PHASE2_LANGUAGE_FINAL_RESULT_2026-09-27.md; keep all earlier negative evidence.
+
+Repair authorization: after the FAIL explanation, user said「請繼續進行 盡量解決掉問題」.
+Proceed with blocker repairs and ONE repair1-pilot under unchanged limits, as frozen in
+docs/PHASE2_REPAIR1_AMENDMENT.md; no open-ended retries or new downloads.
+
+Repair1 is now CONSUMED. Technical load/encode/English caption/query, supervisor and
+cleanup passed; allocated/reserved reach zero. Chinese prompt still echoes in both
+suffix variants. Overall CONDITIONAL PASS, not full Agent/language acceptance.
+Stop GPU work; preserve both runs. Further language pilot needs renewed scoped approval.
+Latest evidence: docs/PHASE2_REPAIR1_RESULT.md.
+
+Historical outcome: the one initial load attempt is CONSUMED. Overall FAIL.
+Real load/encode/caption completed; Chinese query echoed the question, cleanup
+retained 8.125 MiB allocated, and supervisor status-file access failed on Windows.
+Process exit restored observed baseline. Do not delete or reuse the initial run gate.
+See docs/MOONDREAM2_GPU_FEASIBILITY_REPORT.md; repairs/new GPU attempt need renewed scope.
+
+The user explicitly approved GPU/driver queries, CUDA initialization, local baseline
+commit, pinned Moondream2 acquisition (network <=5 GB, new disk <=12 GB), minimally
+necessary versioned dependencies, reviewed local custom code, and one bounded
+persistent-worker load/pilot. This supersedes the Phase 1 execution prohibitions
+only within that scope. No dataset/second VLM, offload, auto mapping, training,
+formal evaluation or push/release. Keep RD-001 and A-D unchanged. All evidence:
+PILOT / EXPLORATORY / NOT FORMAL THESIS RESULT.
+Initial pilot: one load attempt, <=3 development images, <=24 calls, 30 minutes;
+batch1, image <=512 edge/262144 pixels/10 MiB; <=128 output tokens/call,
+<=1024 input tokens/call, <=8 calls/image, <=1024 output tokens/image;
+load <=180s, call <=60s, image <=300s, cleanup <=10s. Stop on blocker/OOM;
+no automatic retry or model change. Full user request is retained in ignored evidence.
+
+## Historical phase: Phase 1 CPU/mock engineering (2026-09-27 authorization)
 
 The user explicitly authorized source/config/test/documentation changes and CPU
 unit/integration tests without CUDA initialization or model downloads in the

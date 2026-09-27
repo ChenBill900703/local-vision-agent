@@ -24,6 +24,12 @@ checkpoints/
 artifacts/
 outputs/
 runs/
+# Phase 2 caches/private inputs remain outside Git even if relocated.
+hf-cache/
+.cache/
+runtime-cache/
+private-development/
+*.gguf
 *.pt
 *.pth
 *.ckpt

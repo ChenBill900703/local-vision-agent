@@ -16,19 +16,11 @@
 
 ## 目前狀態
 
-**最新 repair1：CONDITIONAL PASS**。清理與 Windows supervisor blocker 已解決並完成真實驗證，英文 query 正確；直接繁中回答仍未通過。本次只再執行一次具名重測，已結束；[修復結果](PHASE2_REPAIR1_RESULT.md)。真實 A–D 整合及語言決策仍待完成，不更改目標日期或研究方向。
-
-### 首次 Phase 2 歷史狀態
-
-**Phase 2 更新：首次授權 pilot 已執行並停止於 blocker（FAIL）**。真實 load/encode/caption 成功，中文 query 未回答；清理與 Windows supervisor 需修正。一次載入額度已用，不自動重試。[完整證據與下一次授權範圍](MOONDREAM2_GPU_FEASIBILITY_REPORT.md)。A–D 真實 adapter 整合尚未開始，10/31／11/1 目標保留但不保證。
-
-### Phase 1 歷史狀態
-
 文件已依 RD-001 校正。Phase 1 已建立 CPU/mock Agent、A–D、繁中報告與安全／失敗測試，見 [實作紀錄](PHASE1_RECORD.md)。Moondream2 尚未介接／hardware validated，正式資料／評估流程未完成。
 既有 guard、分類 routing/evaluation、tests、config、CI／lock 是歷史資產，不代表新主線完成。
 2026-09-27 使用者已明確批准 Phase 1 實作及 CPU/mock tests；不安裝／升級／下載、不初始化 CUDA／查詢 GPU、不真實推論／訓練／benchmark、不 commit/push。完成本階段即停止；[原文快照](archive/2026-09-27-before-phase1/DELIVERY_PLAN.md) 保留。
 
-## 分階段計畫（原始窗口保留；Phase 2 實際狀態以上方增補為準）
+## 分階段計畫（僅 Phase 1 CPU/mock 已執行）
 
 | 目標窗口 | 範圍 | 出口證據／停止條件 |
 |---|---|---|

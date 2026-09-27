@@ -1,23 +1,5 @@
 # 本地環境與安全驗證
 
-## 2026-09-27 repair1 最新補充
-
-續行修復後，原套件未變；新增 Windows Job／pipe IPC 工程測試，全套 68 項 CPU tests 通過。
-一次 GPU 對照確認 cuBLAS 清理將 allocated 8,519,680 bytes 降為 0，最終 reserved 亦為 0。
-supervisor 正常退出，job 無殘留；device 回到 used/free 182/7836 MiB。
-英文 query 通過本圖，中文原版／單 suffix 皆重複問題。整體 CONDITIONAL PASS，完整繁中能力未驗收。
-詳 [repair1 結果](PHASE2_REPAIR1_RESULT.md)；以下首次 Phase 2／Phase 1 區段為歷史。
-
-## 2026-09-27 Phase 2 最新結果
-
-使用者另外批准有限 CUDA／模型取得／單次 GPU pilot。未新增或升級依賴。
-RTX 3070 Ti 8192 MiB、driver 591.86、torch 2.7.1+cu126；固定模型真實載入成功。
-整體驗收 FAIL：中文 query、allocator 清理及 Windows supervisor 尚有 blocker。
-程序退出後 dedicated used/free 回到 182/7836 MiB；shared attribution UNKNOWN。
-59 項 CPU tests 通過，3 個 pilot modules strict Mypy 通過。
-完整數據／來源／套件版本見 [GPU 報告](MOONDREAM2_GPU_FEASIBILITY_REPORT.md)。
-下方 Phase 1 與舊分類相容性記錄皆為歷史；不能當成目前模型需求。
-
 ## 2026-09-27 Phase 1 最新補充
 
 使用者批准 CPU/mock 工程測試，沒有批准安裝／升級／下載或 GPU 工作。

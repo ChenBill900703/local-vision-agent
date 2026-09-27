@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
-from typing import Mapping
 
 
 @dataclass(frozen=True, slots=True)
@@ -123,4 +123,3 @@ class ConfidenceRouter:
             abstained=True,
             reason="models disagreed without a decisive confidence margin",
         )
-

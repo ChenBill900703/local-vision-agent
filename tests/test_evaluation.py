@@ -4,7 +4,7 @@ from local_vision_agent.evaluation import evaluate
 
 
 def row(sample, target, prediction, split="test"):
-    return dict(sample_id=sample, target=target, prediction=prediction, split=split)
+    return {"sample_id": sample, "target": target, "prediction": prediction, "split": split}
 
 
 class EvaluationTests(unittest.TestCase):

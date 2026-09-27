@@ -5,8 +5,8 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+from collections.abc import Iterable, Mapping
 from pathlib import Path
-from typing import Iterable, Mapping
 
 
 def evaluate(rows: Iterable[Mapping[str, str]]) -> dict[str, object]:
