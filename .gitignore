@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+*.egg-info/
+build/
+dist/
+venv/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Large or generated assets
+data/
+models/
+checkpoints/
+artifacts/
+outputs/
+runs/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

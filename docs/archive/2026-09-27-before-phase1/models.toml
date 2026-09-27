@@ -1,0 +1,35 @@
+[policy]
+max_process_reserved_mib = 6400
+min_free_before_load_mib = 1536
+default_batch_size = 1
+max_image_edge_px = 336
+
+[models.clip_vit_b32]
+model_id = "openai/clip-vit-base-patch32"
+role = "primary_zero_shot"
+estimated_peak_vram_mib = 1800
+enabled = true
+quantization = "none"
+
+[models.dinov2_small]
+model_id = "facebook/dinov2-small"
+role = "trained_verifier"
+estimated_peak_vram_mib = 1800
+enabled = true
+quantization = "none"
+
+[models.resnet18]
+model_id = "torchvision/resnet18"
+role = "supervised_baseline"
+estimated_peak_vram_mib = 1200
+enabled = true
+quantization = "none"
+
+[models.qwen25_vl_3b]
+model_id = "Qwen/Qwen2.5-VL-3B-Instruct"
+role = "optional_visual_explainer"
+estimated_peak_vram_mib = 6200
+enabled = false
+quantization = "4bit"
+notes = "Disabled until a measured no-offload loading test passes on the target GPU."
+

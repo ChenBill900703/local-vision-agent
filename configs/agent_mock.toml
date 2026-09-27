@@ -1,0 +1,20 @@
+# Engineering fixture limits only. Not approved GPU/pilot/formal evaluation limits.
+schema = "agent-mock-v1"
+adapter = "mock"
+
+[limits]
+max_tool_calls = 12
+max_model_calls = 12
+max_iterations = 12
+per_call_timeout_s = 5.0
+per_image_timeout_s = 60.0
+cleanup_timeout_s = 1.0
+max_input_bytes = 10485760
+max_pixels = 1048576
+max_image_edge_px = 1024
+max_input_tokens = 1024
+max_output_tokens = 256
+max_total_output_tokens = 2048
+max_response_chars = 2048
+max_memory_entries = 12
+max_batch_images = 16

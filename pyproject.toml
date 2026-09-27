@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-visual-agent"
+version = "0.1.0"
+description = "VRAM-safe local visual recognition agent for resource-constrained research"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "Proprietary until a repository license is selected" }
+authors = [{ name = "ChenBill" }]
+dependencies = []
+
+[project.optional-dependencies]
+research = [
+    "torch==2.7.1", "torchvision==0.22.1",
+    "transformers>=4.57,<5", "safetensors>=0.6,<1",
+    "numpy>=2,<3", "scipy>=1.15,<2", "scikit-learn>=1.6,<2",
+    "pandas>=2.2,<3", "Pillow>=11,<13",
+    "matplotlib>=3.10,<4", "tqdm>=4.67,<5",
+]
+dev = ["ruff>=0.12,<1", "mypy>=1.15,<2", "pytest>=8,<10", "pytest-cov>=6,<8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
