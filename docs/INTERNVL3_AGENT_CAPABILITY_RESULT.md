@@ -66,7 +66,7 @@ Raw response (unmodified):
 ```text
 The image contains two shapes: a red square on the left and a blue circle on the right.
 ```
-Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: HUMAN REVIEW, never an execution gate.
+Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: USER HUMAN REVIEW PASS, never an execution gate.
 
 ### scene
 Prompt:
@@ -79,7 +79,7 @@ Raw response (unmodified):
 ```text
 這張圖片主要展示了一個紅色的正方形和一個藍色的圓形。背景是白色的。
 ```
-Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: HUMAN REVIEW, never an execution gate.
+Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: USER HUMAN REVIEW PASS, never an execution gate.
 
 ### objects
 Prompt:
@@ -92,7 +92,7 @@ Raw response (unmodified):
 ```text
 畫面中有一個紅色的正方形和一個藍色的圓形。
 ```
-Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: HUMAN REVIEW, never an execution gate.
+Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: USER HUMAN REVIEW PASS, never an execution gate.
 
 ### detail
 Prompt:
@@ -105,7 +105,7 @@ Raw response (unmodified):
 ```text
 在這張圖片中，背景中沒有明顯且可以確認的物件。
 ```
-Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: HUMAN REVIEW, never an execution gate.
+Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: USER HUMAN REVIEW PASS, never an execution gate.
 
 ### verification
 Prompt:
@@ -118,7 +118,7 @@ Raw response (unmodified):
 ```text
 圖片中有紅色正方形。
 ```
-Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: HUMAN REVIEW, never an execution gate.
+Worker status `healthy`, stop `eos`; engineering receipt accepted. Semantic rating: USER HUMAN REVIEW PASS, never an execution gate.
 
 ## Latency and tokens
 

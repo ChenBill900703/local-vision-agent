@@ -1,5 +1,18 @@
 # Project instructions
 
+## Integration implementation completed — 2026-09-28
+
+Real InternVLAdapter, guarded private backend, persistent JSON worker/watchdog and existing
+bounded A–D controller connection implemented AFTER clean adoption checkpoint
+580d0a92c529b0e4aca692b658ca77d675a4678c. CPU fixtures validate implementation only.
+New adapter/Agent GPU end-to-end path NOT RUN; consumed capability session is not that test.
+No suitable rights-confirmed real images supplied; no real-image sanity performed.
+Next smallest stage needs one separately authorized, frozen adapter/Agent GPU smoke on
+original synthetic fixture. No extra GPU execution inferred from this completed turn.
+See docs/REAL_INTERNVL_INTEGRATION.md and latest SESSION_HANDOFF.md. Preserve both
+InternVL pilots and all Moondream history. No model shopping. Final shared A–D preprocessing,
+claims/triggers and formal evaluation protocol remain unfrozen.
+
 ## Adoption completed — 2026-09-28
 
 INTERNVL3_AGENT_CAPABILITY_PILOT_20260928 CONSUMED: control plus four probes completed,

@@ -16,6 +16,8 @@
 
 ## 目前狀態
 
+2026-09-28 最新：能力補測完成、使用者人工評閱確認 ADOPT InternVL3-2B-Instruct。已建立 adoption checkpoint、實作 real adapter／persistent worker／bounded Agent 接合；CPU 測試通過，新整合 GPU smoke 尚待獨立授權。[整合紀錄](REAL_INTERNVL_INTEGRATION.md)。以下保留前次狀態歷史。
+
 2026-09-28：InternVL3 受控替換 feasibility **CONDITIONAL PASS — SMALL ENGINEERING BLOCKER**；四項核心真實問答／繁中、離線、預算及清理成功，但工程 gate 過嚴，四項能力探測未執行。本次一次載入額度用完，未整合 Agent。[報告](INTERNVL3_2B_GPU_FEASIBILITY_REPORT.md)；[交接](../SESSION_HANDOFF.md)。10/31／11/1 目標不變，不保證完成。
 
 ### 歷史 Moondream2 狀態

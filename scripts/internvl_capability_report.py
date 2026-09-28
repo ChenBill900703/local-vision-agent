@@ -1,5 +1,6 @@
 """CPU-only evidence report. Semantic adoption requires a separate human review record."""
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -42,6 +43,8 @@ def main() -> None:
         and review.get("reviewer_kind") == "human_user"
         and review.get("run_id") == run.name
         and review.get("all_capabilities_and_chinese_usable") is True
+        and review.get("raw_events_sha256")
+        == hashlib.sha256((run / "events.jsonl").read_bytes()).hexdigest()
     )
     lines = [
         """# InternVL3 Agent Capability Result — 2026-09-28
@@ -82,7 +85,7 @@ under artifacts/internvl3-capability-20260928/evidence/. No GPT/cloud semantic j
             f"\n### {e['operation']}\n",
             "Prompt:\n\n```text\n" + starts[e["operation"]]["prompt"] + "\n```\n",
             "Raw response (unmodified):\n\n```text\n" + e["raw_response"] + "\n```\n",
-            f"Worker status `{e['worker_status']}`, stop `{e['stop_reason']}`; engineering receipt accepted. Semantic rating: HUMAN REVIEW, never an execution gate.\n",
+            f"Worker status `{e['worker_status']}`, stop `{e['stop_reason']}`; engineering receipt accepted. Semantic rating: {'USER HUMAN REVIEW PASS' if accepted else 'PENDING HUMAN REVIEW'}, never an execution gate.\n",
         ]
     lines += [
         "\n## Latency and tokens\n\nGPU synchronization before/after operations; query totals include telemetry overhead. Every call recomputes visual features and uses fresh KV. Warm compute is not cached replay.\n\n",

@@ -3,7 +3,8 @@
 **最新 2026-09-28：ADOPT INTERNVL3-2B-INSTRUCT AS PRIMARY VLM CANDIDATE。**
 新 capability pilot 的五次查詢與安全／離線／清理通過；使用者於原始輸出後人工確認全部能力及繁中可用。
 [採用決策](docs/INTERNVL3_ADOPTION_DECISION.md)／[能力補測結果](docs/INTERNVL3_AGENT_CAPABILITY_RESULT.md)。
-即將從本地 adoption checkpoint 開始 real adapter 與 bounded Agent integration；不是 RQ2–RQ4 成功。以下舊 phase 結果保留歷史。
+已從本地 adoption checkpoint `580d0a92c529b0e4aca692b658ca77d675a4678c` 完成 real adapter／persistent worker／bounded Agent 程式接合與 CPU 測試；新整合的 GPU 端到端驗證尚未執行。不是 RQ2–RQ4 成功。
+[整合契約與驗證界線](docs/REAL_INTERNVL_INTEGRATION.md)。以下舊 phase 結果保留歷史。
 
 
 **目前（2026-09-28）：InternVL3 feasibility = CONDITIONAL PASS — SMALL ENGINEERING BLOCKER。**

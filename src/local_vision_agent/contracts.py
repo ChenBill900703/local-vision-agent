@@ -108,10 +108,17 @@ class VisionAdapter(Protocol):
     A real adapter needs separately approved loading/preflight and token accounting.
     """
 
-    model_id: str
-    revision: str
-    is_mock: bool
-    capabilities: tuple[str, ...]
+    @property
+    def model_id(self) -> str: ...
+
+    @property
+    def revision(self) -> str: ...
+
+    @property
+    def is_mock(self) -> bool: ...
+
+    @property
+    def capabilities(self) -> tuple[str, ...]: ...
 
     def invoke(self, request: Request, image: ImageInfo) -> Answer: ...
 
@@ -155,5 +162,6 @@ class Report:
     evidence_kind: str = "MOCK_NOT_RESEARCH_EVIDENCE"
     schema_version: str = "agent-report-v1"
     policy_revision: str = "bounded-policy-v1"
-    peak_vram_mib: None = None
-    model_latency_s: None = None
+    peak_vram_mib: float | None = None
+    model_latency_s: float | None = None
+    runtime_metadata: dict[str, object] | None = None

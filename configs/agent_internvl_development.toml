@@ -1,0 +1,25 @@
+# Development configuration; no automatic GPU authorization or formal evaluation freeze.
+schema = "internvl-development-v1"
+adapter = "internvl3-pinned"
+
+[runtime]
+preprocessing = "internvl-single-tile-rgb-bicubic448-imagenet-v1"
+load_timeout_s = 180.0
+session_timeout_s = 1800.0
+
+[limits]
+max_tool_calls = 8
+max_model_calls = 8
+max_iterations = 8
+per_call_timeout_s = 60.0
+per_image_timeout_s = 300.0
+cleanup_timeout_s = 10.0
+max_input_bytes = 10485760
+max_pixels = 262144
+max_image_edge_px = 512
+max_input_tokens = 1024
+max_output_tokens = 128
+max_total_output_tokens = 1024
+max_response_chars = 8192
+max_memory_entries = 8
+max_batch_images = 1

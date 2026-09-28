@@ -22,8 +22,11 @@ def to_markdown(report: Report) -> str:
         "contradicted": "同模型觀察反駁",
         "unresolved": "未確定",
     }
+    mocked = report.evidence_kind == "MOCK_NOT_RESEARCH_EVIDENCE"
     lines = [
-        "# 影像理解報告（MOCK 模擬，非研究證據）",
+        "# 影像理解報告（MOCK 模擬，非研究證據）"
+        if mocked
+        else "# 影像理解報告（本地模型開發驗證，非正式論文結果）",
         "",
         f"執行 ID：{report.run_id}",
         "輸入 ID：" + literal(report.input_id),
@@ -57,12 +60,16 @@ def to_markdown(report: Report) -> str:
             lines.append(f"{observation.call_id}：有未確定內容或待查細節。")
     lines.extend(
         [
-            "所有影像語意均來自 mock 腳本，不是圖片辨識。",
+            "所有影像語意均來自 mock 腳本，不是圖片辨識。"
+            if mocked
+            else "以下為模型觀察；候選敘述不等於客觀真值，未明確驗證者維持未確定。",
             "同模型驗證不是獨立真值；未驗證敘述及反駁內容不得視為事實。",
             "",
             "## 資源摘要",
             f"工具嘗試次數：{len(report.observations)}",
-            "真實模型延遲／峰值顯存：未量測；未載入模型。",
+            "真實模型延遲／峰值顯存：未量測；未載入模型。"
+            if mocked
+            else f"模型查詢總延遲（秒）：{report.model_latency_s}；峰值保留顯存（MiB）：{report.peak_vram_mib}；缺失值表示未量測。",
         ]
     )
     return "\n\n".join(lines) + "\n"

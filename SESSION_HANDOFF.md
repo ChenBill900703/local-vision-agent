@@ -1,3 +1,43 @@
+# Current handoff — Real Agent development implementation, 2026-09-29
+
+ADOPT INTERNVL3-2B-INSTRUCT AS PRIMARY VLM CANDIDATE, user HUMAN review recorded.
+Model/tokenizer/config/template f6c7b60375759170fd49f5e9e298e2178485c5ba.
+No dependencies/downloads changed; no model shopping or formal evaluation.
+
+Adoption checkpoint: 580d0a92c529b0e4aca692b658ca77d675a4678c, clean before integration.
+Current implementation is in the local `integrate-internvl-persistent-bounded-agent`
+checkpoint containing this document (resolve exact HEAD with git rev-parse HEAD).
+No push. Completion audit/dirty state/source hashes stored under
+artifacts/internvl3-capability-20260928/evidence/integration-completion/.
+Completion backup: artifacts/internvl3-integration-20260929-evidence-backup.
+2026-09-29 closeout performed CPU checks only; no additional GPU session.
+
+Completed code: typed real adapter, private pinned CUDA backend, JSON persistent worker,
+independent watchdog, explicit versioned preprocessing, existing A–D controller connection,
+Chinese report/normalized trace/evidence links. CPU fixtures only for new integration.
+93 CPU tests PASS; Ruff src/tests/scripts PASS; strict Mypy28 modules PASS.
+[Integration contract and limits](docs/REAL_INTERNVL_INTEGRATION.md).
+
+GPU runs: exactly one capability session during the 2026-09-28 adoption phase, control+4probes, all user-reviewed
+usable; engineering/offline/resource/placement/zero-cleanup/process exit PASS. Initial run
+was not repeated. Both are under artifacts/internvl3-20260928/runs. Capability backup:
+artifacts/internvl3-capability-20260928-evidence-backup. Human review in evidence/human_review.json.
+All original Moondream evidence/weights retained. Last real GPU PASS: capability cleanup.
+
+New RPC/adapter/Agent end-to-end GPU is NOT VERIFIED. Do not relabel pilot as integration
+validation. No suitable real images supplied; optional real-image check not run.
+No known model/hardware blocker; next verification gate remains pending scoped execution.
+The development parser conservatively requires explicit verification labels; other wording
+stays unresolved even when a human considers it a reasonable reply. No GPT runtime judge.
+
+Exact next action: freeze and obtain scoped authorization for ONE adapter/Agent GPU smoke
+on the existing synthetic fixture using this implementation. No dependency/model download.
+Do not rerun initial/capability gates, test another VLM, change precision/offload, integrate
+external detector/OCR/UI, or execute formal A–D evaluation. Final common preprocessing/
+tiling, claims/triggers/data/metrics/statistics still need formal freeze.
+
+Below are historical handoffs; their older pending/conditional states are not current.
+
 # Latest handoff — Adoption confirmed 2026-09-28
 
 ADOPT INTERNVL3-2B-INSTRUCT AS PRIMARY VLM CANDIDATE. User human review confirms

@@ -1,4 +1,4 @@
-"""Finite same-adapter A-D controller. Phase 1 permits explicit mock only."""
+"""Finite same-adapter A-D controller with explicit mock or supervised real executor."""
 
 import time
 from collections.abc import Callable
@@ -16,8 +16,10 @@ from .contracts import (
     Observation,
     Report,
     Request,
+    VisionAdapter,
 )
 from .image_input import inspect_image
+from .internvl_adapter import InternVLAdapter
 from .mock_adapter import MockAdapter
 from .tool_executor import MockProcessExecutor
 
@@ -59,7 +61,7 @@ class Agent:
     def __init__(
         self,
         limits: Limits,
-        adapter: MockAdapter,
+        adapter: VisionAdapter,
         *,
         executor: Executor | None = None,
         clock: Callable[[], float] = time.monotonic,
@@ -67,11 +69,19 @@ class Agent:
         if type(limits) is not Limits:
             raise AgentError("MISSING_LIMITS")
         limits.__post_init__()
-        if type(adapter) is not MockAdapter:
+        if type(adapter) is MockAdapter:
+            selected_executor: Executor = executor or MockProcessExecutor(
+                adapter, limits.cleanup_timeout_s
+            )
+        elif type(adapter) is InternVLAdapter:
+            if executor is not adapter or not adapter.loaded or adapter.config.limits != limits:
+                raise AgentError("REAL_ADAPTER_REQUIRES_LOADED_SUPERVISED_EXECUTOR")
+            selected_executor = adapter
+        else:
             raise AgentError("REAL_ADAPTER_NOT_ENABLED")
         self.limits = limits
         self.adapter = adapter
-        self.executor = executor or MockProcessExecutor(adapter, limits.cleanup_timeout_s)
+        self.executor = selected_executor
         self.clock = clock
 
     def run(self, item: ImageInput, method: Method) -> Report:
@@ -108,7 +118,7 @@ class Agent:
             prompt = PROMPTS[prompt_id] + (claim or "")
             # Mock has no tokenizer. UTF-8 bytes are a conservative engineering proxy,
             # not a claim about Moondream tokenization; real adapter must tokenize.
-            if len(prompt.encode("utf-8")) > limits.max_input_tokens:
+            if self.adapter.is_mock and len(prompt.encode("utf-8")) > limits.max_input_tokens:
                 raise AgentError("INPUT_TOKEN_LIMIT")
             request = Request(
                 "caption" if prompt_id == "caption" else "query",
@@ -151,7 +161,13 @@ class Agent:
                     elif len(claims) >= limits.max_memory_entries:
                         raise AgentError("MEMORY_LIMIT")
                     else:
-                        claims.append(Claim(text, (call_id,)))
+                        claims.append(
+                            Claim(
+                                text,
+                                (call_id,),
+                                status="model-proposed" if self.adapter.is_mock else "unresolved",
+                            )
+                        )
             return answer
 
         try:
@@ -205,6 +221,11 @@ class Agent:
             tuple(claims),
             tuple(states),
             limits,
+            model_id=self.adapter.model_id,
+            model_revision=self.adapter.revision,
+            evidence_kind="MOCK_NOT_RESEARCH_EVIDENCE"
+            if self.adapter.is_mock
+            else "REAL_LOCAL_DEVELOPMENT_NOT_FORMAL_THESIS_RESULT",
         )
 
     def run_batch(self, items: list[ImageInput], method: Method) -> tuple[Report, ...]:
