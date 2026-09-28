@@ -1,6 +1,52 @@
 # Project instructions
 
-## Current phase: Phase 2 bounded GPU feasibility (2026-09-27 authorization)
+## Adoption completed — 2026-09-28
+
+INTERNVL3_AGENT_CAPABILITY_PILOT_20260928 CONSUMED: control plus four probes completed,
+offline/resource/placement/cleanup PASS. User HUMAN review explicitly confirmed all
+capabilities/Chinese usable and verification supports claim. ADOPT INTERNVL3-2B-INSTRUCT
+AS PRIMARY VLM CANDIDATE for engineering/development. Stop model shopping. New primary
+revision f6c7b60375759170fd49f5e9e298e2178485c5ba; Moondream is historical only.
+Proceed with authorized real adapter/persistent bounded Agent implementation after local
+adoption checkpoint; no extra GPU load under the consumed capability allowance.
+Formal preprocessing/tiling and A–D evaluation remain unfrozen. No RQ2–RQ4 claims.
+
+## Latest authorization: Adoption Gate and conditional integration (2026-09-28)
+
+User explicitly authorizes ONE new capability session after CPU safety-gate tests,
+same pinned InternVL assets/runtime/fixture/limits, control plus four fixed probes.
+Execution safety is separate from post-run HUMAN semantic review; no GPT judge.
+See docs/INTERNVL3_AGENT_CAPABILITY_PILOT_AMENDMENT_2026-09-28.md and
+artifacts/internvl3-capability-20260928/evidence/user_authorization.txt.
+Initial run and historical lexical gate remain immutable. After human-reviewed ADOPT,
+create local checkpoint, then implement real adapter/persistent bounded Agent integration.
+No dependency/download/model change, formal experiment or push. This supersedes earlier
+no-additional-GPU/no-integration rules only within the new conditional scope.
+
+## Current phase: InternVL3 safe migration feasibility (2026-09-28 authorization)
+
+User explicitly authorized InternVL3 Safe Migration + Full Local Feasibility Phase.
+Full request: artifacts/internvl3-20260928/evidence/user_authorization.txt.
+Checkpoint cb171216dac7f7fd99aa6b9a2776de4bd1311af4 precedes all new acquisition.
+Only selected InternVL3-2B-Instruct f6c7b60375759170fd49f5e9e298e2178485c5ba;
+one weights distribution, <=5GB network / <=12GB new disk, no new dependency needed.
+One offline GPU session, original synthetic fixture, bounded single tile and <=8 calls;
+see docs/INTERNVL3_PILOT_AMENDMENT_2026-09-28.md and static review. No Agent integration,
+formal tests, second fallback, offload, quantization, push or Moondream deletion/tuning.
+This supersedes the earlier no-fallback-acquisition restriction only within this scope.
+
+INTERNVL3_INITIAL_GPU_PILOT is now CONSUMED. One offline load, four core queries,
+English/direct Traditional Chinese/caption/English-to-Chinese PASS on synthetic fixture;
+budget/placement/cleanup PASS, allocated/reserved zero, device baseline recovered.
+Four optional capability probes NOT RUN: assistant-authored lexical scheduler rejected
+valid left/right and 了 wording. Preserve frozen gate; do not rewrite it after results.
+Verdict CONDITIONAL PASS — SMALL ENGINEERING BLOCKER (incomplete probe coverage).
+No more GPU loads or Agent integration under this consumed authorization. Read
+docs/INTERNVL3_2B_GPU_FEASIBILITY_REPORT.md and SESSION_HANDOFF.md. Any follow-up
+pilot needs a separate prospective amendment and scoped user approval; no new download
+or dependency is currently needed. Moondream evidence/weights remain preserved.
+
+## Historical phase: Phase 2 bounded GPU feasibility (2026-09-27 authorization)
 
 Latest authorization: ONE FINAL Moondream2 language diagnostic, explicitly approved by user.
 Run language-final-20260927; exact two prompts and criteria frozen in

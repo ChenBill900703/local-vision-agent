@@ -13,6 +13,8 @@ from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
 
+from .capability_gate import RUN_ID as CAPABILITY_RUN_ID
+from .capability_gate import CapabilityTransport
 from .gpu_guard import GpuSnapshot, query_gpu_snapshot
 from .language_diagnostic import RUN_ID
 from .pilot_ipc import Deadlines, EventReader
@@ -39,11 +41,29 @@ class GpuSampler:
             self.samples.put(exc)
 
 
-def run(root: Path, authorized: bool, *, final_language: bool = False) -> int:
+def run(
+    root: Path,
+    authorized: bool,
+    *,
+    final_language: bool = False,
+    internvl: bool = False,
+    capability: bool = False,
+) -> int:
     if not authorized:
         raise PilotRefusal("EXPLICIT_REPAIR1_AUTHORIZATION_REQUIRED")
+    if capability:
+        internvl = True
+    if internvl and final_language:
+        raise PilotRefusal("CONFLICTING_PILOT_MODES")
     limits = PilotLimits()
-    run_dir = root / "runs" / (RUN_ID if final_language else "repair1-pilot")
+    run_id = (
+        "INTERNVL3_INITIAL_GPU_PILOT"
+        if internvl
+        else (RUN_ID if final_language else "repair1-pilot")
+    )
+    if capability:
+        run_id = CAPABILITY_RUN_ID
+    run_dir = root / "runs" / run_id
     run_dir.mkdir(parents=True, exist_ok=False)
     project = Path(__file__).resolve().parents[2]
 
@@ -59,7 +79,7 @@ def run(root: Path, authorized: bool, *, final_language: bool = False) -> int:
 
     metadata = {
         "label": LABEL,
-        "amendment": RUN_ID if final_language else "repair1",
+        "amendment": run_id,
         "started": datetime.now().astimezone().isoformat(),
         "commit": git_read("rev-parse", "HEAD"),
         "dirty_state": git_read("status", "--porcelain"),
@@ -85,6 +105,7 @@ def run(root: Path, authorized: bool, *, final_language: bool = False) -> int:
     )
     started = time.monotonic()
     deadlines = Deadlines(started, limits)
+    transport = CapabilityTransport(limits) if capability else None
     failure: str | None = None
     process = job = sampler = None
     worker_pid = worker_exit = None
@@ -97,12 +118,20 @@ def run(root: Path, authorized: bool, *, final_language: bool = False) -> int:
                     sys.executable,
                     "-B",
                     "-m",
-                    "local_vision_agent.pilot_worker",
+                    "local_vision_agent.internvl_worker"
+                    if internvl
+                    else "local_vision_agent.pilot_worker",
                     "--root",
                     str(root),
                     "--run-dir",
                     str(run_dir),
-                    "--final-language" if final_language else "--repair1",
+                    *(
+                        ["--capability"]
+                        if capability
+                        else []
+                        if internvl
+                        else ["--final-language" if final_language else "--repair1"]
+                    ),
                 ],
                 cwd=project,
                 env=environment,
@@ -136,6 +165,8 @@ def run(root: Path, authorized: bool, *, final_language: bool = False) -> int:
                         else:
                             if worker_pid is None or event["pid"] != worker_pid:
                                 raise PilotRefusal("WORKER_IDENTITY_MISMATCH")
+                            if transport is not None:
+                                transport.observe(event)
                             deadlines.observe(event)
                             print(event["phase"], event.get("operation", ""), flush=True)
                             if event["phase"] == "worker_done":
@@ -202,5 +233,15 @@ if __name__ == "__main__":
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--authorize-repair1-pilot", action="store_true")
     group.add_argument("--authorize-final-language", action="store_true")
+    group.add_argument("--authorize-internvl-pilot", action="store_true")
+    group.add_argument("--authorize-capability-pilot", action="store_true")
     args = parser.parse_args()
-    raise SystemExit(run(args.root.resolve(), True, final_language=args.authorize_final_language))
+    raise SystemExit(
+        run(
+            args.root.resolve(),
+            True,
+            final_language=args.authorize_final_language,
+            internvl=args.authorize_internvl_pilot,
+            capability=args.authorize_capability_pilot,
+        )
+    )

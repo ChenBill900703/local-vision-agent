@@ -129,3 +129,10 @@ Local Agentic Image Understanding on RTX 3070 Ti 8GB；Moondream2 為 proposed p
 - 真實 peak VRAM／latency 目前 UNKNOWN；未測前不得以模型參數量或既有 CPU 測試宣稱 8GB 可承擔。
 
 Astra 僅開發助手，runtime 完全本地。安全規範見 [AGENTS](../AGENTS.md)，唯一 active 時程見 [DELIVERY_PLAN](DELIVERY_PLAN.md)。
+
+
+## 2026-09-28 InternVL3 實測補充
+
+既有環境未安裝、升級或移除套件。Python3.11.9、torch2.7.1+cu126、Transformers4.57.6，driver591.86。固定 InternVL3-2B-Instruct BF16/cuda:0/eager 單一 tile，在一次離線 load 中完成四項英文／繁中查詢，峰值 reserved4688MiB，清理 allocated/reserved0。只代表單張 development fixture 路徑。[完整報告](INTERNVL3_2B_GPU_FEASIBILITY_REPORT.md)。四項後續能力探測因工程 gate 過嚴未執行，CONDITIONAL PASS，停止 GPU 工作。
+
+75 CPU tests／Ruff／strict Mypy21 modules 通過；Windows 命令應設 PYTHONIOENCODING=utf-8，未設定時曾造成既有 CLI 測試的 cp950/UTF-8 解碼失敗。無依賴缺失安裝；受控原始碼明確移除未使用的選用加速 import。不是新版通用環境 lock 或全部影像相容性證明。

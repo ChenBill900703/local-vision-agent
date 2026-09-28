@@ -1,6 +1,17 @@
 # Local Agentic Image Understanding on RTX 3070 Ti 8GB
 
-**最新：最後一次 Moondream2 語言診斷已結束。English control PASS；英文指令要求繁中輸出 FAIL（仍全英文）；cleanup PASS。**
+**最新 2026-09-28：ADOPT INTERNVL3-2B-INSTRUCT AS PRIMARY VLM CANDIDATE。**
+新 capability pilot 的五次查詢與安全／離線／清理通過；使用者於原始輸出後人工確認全部能力及繁中可用。
+[採用決策](docs/INTERNVL3_ADOPTION_DECISION.md)／[能力補測結果](docs/INTERNVL3_AGENT_CAPABILITY_RESULT.md)。
+即將從本地 adoption checkpoint 開始 real adapter 與 bounded Agent integration；不是 RQ2–RQ4 成功。以下舊 phase 結果保留歷史。
+
+
+**目前（2026-09-28）：InternVL3 feasibility = CONDITIONAL PASS — SMALL ENGINEERING BLOCKER。**
+一次離線載入及四項英文／繁中核心測試成功，清理歸零；過嚴的工程字詞門檻跳過四項能力探測，因此尚不能完整採用或整合。
+[完整實測報告](docs/INTERNVL3_2B_GPU_FEASIBILITY_REPORT.md)、[SESSION_HANDOFF](SESSION_HANDOFF.md)。本次 GPU 額度已用完，停止執行。使用者本次授權為 InternVL3 Safe Migration + Full Local Feasibility。
+只評估固定版本 InternVL3-2B-Instruct；[事前修訂](docs/INTERNVL3_PILOT_AMENDMENT_2026-09-28.md)、[靜態審查](docs/INTERNVL3_STATIC_REVIEW_2026-09-28.md)。Moondream2 已封存於本地 checkpoint `cb171216dac7f7fd99aa6b9a2776de4bd1311af4`。不直接整合 Agent、不變更 RD-001、不再調整 Moondream2 中文 prompt。下文舊授權與結果保留歷史。
+
+**歷史（2026-09-27）：最後一次 Moondream2 語言診斷已結束。English control PASS；英文指令要求繁中輸出 FAIL（仍全英文）；cleanup PASS。**
 `MOONDREAM2 DIRECT TRADITIONAL CHINESE OUTPUT = REPRODUCIBLE BLOCKER`（本次固定設定）。
 依使用者停止規則，停止 Moondream2 prompt tuning，建議 `EVALUATE FALLBACK VLM`，優先另行評估 OpenGVLab/InternVL3-2B-Instruct；尚未批准或執行替代模型下載／載入／整合。
 [最終 dated result](docs/PHASE2_LANGUAGE_FINAL_RESULT_2026-09-27.md)。下方 Repair1 與早期結果保留為歷史，不改寫其負面證據。

@@ -16,6 +16,10 @@
 
 ## 目前狀態
 
+2026-09-28：InternVL3 受控替換 feasibility **CONDITIONAL PASS — SMALL ENGINEERING BLOCKER**；四項核心真實問答／繁中、離線、預算及清理成功，但工程 gate 過嚴，四項能力探測未執行。本次一次載入額度用完，未整合 Agent。[報告](INTERNVL3_2B_GPU_FEASIBILITY_REPORT.md)；[交接](../SESSION_HANDOFF.md)。10/31／11/1 目標不變，不保證完成。
+
+### 歷史 Moondream2 狀態
+
 **最新 repair1：CONDITIONAL PASS**。清理與 Windows supervisor blocker 已解決並完成真實驗證，英文 query 正確；直接繁中回答仍未通過。本次只再執行一次具名重測，已結束；[修復結果](PHASE2_REPAIR1_RESULT.md)。真實 A–D 整合及語言決策仍待完成，不更改目標日期或研究方向。
 
 ### 首次 Phase 2 歷史狀態
