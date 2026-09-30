@@ -1,3 +1,10 @@
+# Execution scope update — 2026-09-30
+
+Two user-identified local photos now rights-confirmed; user also approved local <=512 derivatives
+and confirmed non-sensitive contents. Prospective execution is frozen in
+[dated amendment](REAL_IMAGE_DEVELOPMENT_SANITY_AMENDMENT_2026-09-30.md).
+Original proposal below retained as history. No human semantic result inferred in advance.
+
 # Real-image development sanity — proposal, 2026-09-30
 
 PROPOSED / NOT EXECUTED / NOT FORMAL THESIS RESULT.

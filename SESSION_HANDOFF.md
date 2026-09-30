@@ -1,51 +1,40 @@
-# CURRENT — Real adapter/Agent synthetic GPU smoke PASS, 2026-09-30
+# CURRENT — Verification budget repair CPU ready, 2026-09-30
 
-Phase: DEVELOPMENT ONLY / PILOT / NOT FORMAL THESIS RESULT.
-REAL INTERNVL AGENT GPU SMOKE = PASS.
-Latest run: INTERNVL_REAL_AGENT_GPU_SMOKE_20260930 (CONSUMED; do not repeat).
-Exact tested source HEAD: c2ce0b24a61c257db9cdc232f45dd4c95e30521f; branch main.
-Resume dirty state CLEAN; execution dirty state only the prospective smoke amendment.
-Closeout checkpoint: local `real-internvl-agent-gpu-smoke-pass` commit containing this CURRENT
-section. Resolve its exact HEAD with `git rev-parse HEAD`; exact final SHA/clean status stored
-in artifacts/internvl-real-agent-smoke-20260930/evidence/checkpoint.json after commit.
-No push. Prior last checkpoint: c2ce0b24a61c257db9cdc232f45dd4c95e30521f.
+VERIFICATION BUDGET REPAIR = CPU READY / GPU VALIDATION PENDING.
+Exact repaired source HEAD: 538ef24c13686cbf2cc378ae8d078e8645beed34; branch main.
+Final docs checkpoint containing this CURRENT section preserves that exact runtime source;
+final HEAD/clean status recorded after commit in artifacts/verification-budget-repair-20260930/checkpoint.json.
+No push. This phase has NO GPU execution/query/load, image inference, installs or downloads.
 
-One actual Method D through unchanged Agent -> InternVLAdapter -> RPC -> persistent CUDA
-worker completed: caption, scene, four verification calls; 65 generated tokens; NO_TRIGGER;
-COMPLETED. Object/detail decision states visited but no corresponding model calls selected.
-NO_NEW_EVIDENCE branch NOT exercised by this image; CPU fixtures only for that branch.
-Four literal candidate clauses link to raw observations and verification requests; all explicit
-supported responses parsed. Same-model support is not independent ground truth or quality metric.
-Raw Chinese preserved; structured Chinese report generated; no mock fallback or runtime cloud.
+FIFO verification budget planned before calls, constrained by remaining model/tool/iteration/
+observation-memory caps; zero reserved modelcalls.8claims after2calls ->6checks,2unresolved,
+coverage75%; normal COMPLETED_WITH_PARTIAL_VERIFICATION / VERIFICATION_BUDGET_EXHAUSTED.
+Hard call limits and failure handling retained. Report schema v2 separates investigation_stop,
+verification_stop/coverage and generation stop/tokens/truncated. No prompt, triggers, candidate
+extraction, model, precision, config, limits or preprocessing change. Same-model verification
+is not independent truth; truncation/subjective over-acceptance remain research limitations.
 
-Peak allocator4429.578MiB / reserved4688MiB; sampled device peak5137MiB.
-Full invocation44.531s, synchronized calls4.375s. Cleanup allocated0/reserved0, worker exit0,
-Windows Job empty, device246used/7772freeMiB equals baseline. Offline/placement/budget PASS
-within observed bounds. Shared GPU memory UNKNOWN. Before-cleanup allocator snapshot not
-separately sampled; timestamp/device sample and preceding call snapshot explicitly distinguished.
+101 CPU tests PASS(10.394s), Ruff PASS, strict Mypy28 PASS. Explicit CPU fixtures only.
+No new GPU validation evidence. Tests include FIFO/zero/smaller/exact slots, buggy planner
+backstop, coverage/report consistency, failures, A-D semantics and adapter truncation receipts.
+Repair doc: docs/VERIFICATION_BUDGET_REPAIR.md. Logs/source/preservation in ignored artifacts.
+Prospective frozen amendment: docs/VERIFICATION_BUDGET_REPAIR_GPU_VALIDATION_AMENDMENT_2026-09-30.md.
 
-Pre-run:93 CPU tests PASS (12.038s), Ruff PASS, strict Mypy28 PASS.
-Post-run:93 CPU tests PASS (10.513s), Ruff PASS, strict Mypy28 PASS.
-Result reconstruction/trace consistency PASS; logs retained in evidence/post-*.txt.
-Assets/dependencies/source/runtime config changed: NONE. Only reporting/audit/docs added.
-Frozen amendment: docs/REAL_INTERNVL_AGENT_GPU_SMOKE_AMENDMENT_2026-09-30.md.
-Result: docs/REAL_INTERNVL_AGENT_GPU_SMOKE_RESULT.md.
-Raw run: artifacts/internvl3-20260928/runs/INTERNVL_REAL_AGENT_GPU_SMOKE_20260930.
-Evidence: artifacts/internvl-real-agent-smoke-20260930/evidence.
-Backup: artifacts/internvl-real-agent-smoke-20260930-evidence-backup.
-All original InternVL/Moondream runs and controlled assets preserved; no extra load/retry.
+Historical natural-image phase remains CONDITIONAL; indoor REAL_IMAGE_SANITY_20260930_INDOOR_DESK_001
+consumed, partial TOOL_CALL_LIMIT,8claims/6checks/2unresolved,caption128token truncation.
+User review:「整體可用，但保留截斷與未完成驗證的限制」。All raw outputs/review immutable.
+Synthetic INTERNVL_REAL_AGENT_GPU_SMOKE_20260930 PASS remains immutable; all earlier pilots consumed.
+Outdoor original/approved derivative still NOT GPU RUN. No engineering baseline READY.
+Private photos remain ignored/local-only; no image uploads/Git/publication/identity inference.
 
-Remaining gate: no rights-confirmed real development images supplied; real-image sanity NOT RUN.
-Do NOT mark REAL LOCAL AGENT ENGINEERING BASELINE READY yet. No current demonstrated model/
-hardware/integration blocker for this synthetic path. General image quality not established.
-Exact next action: obtain <=2 non-sensitive rights-confirmed development images, then freeze
-and authorize the bounded real-image sanity scope in docs/REAL_IMAGE_DEVELOPMENT_SANITY_PROPOSAL.md.
-Do not run A/B/C/formal data, rerun any consumed pilot/smoke, tune prompts, change preprocessing,
-install/download, shop models or add features. After engineering acceptance, next major phase is
-FORMAL EXPERIMENT DESIGN FREEZE (data, truth, metrics, preprocessing, A-D prompts/triggers,
-limits, failures, repetitions and statistics). Formal test data remains untouched.
+Exact next action: obtain explicit approval for ONE prospective outdoor validation under the
+new amendment, source 538ef24c13686cbf2cc378ae8d078e8645beed34. Proposed ID VERIFICATION_BUDGET_REPAIR_OUTDOOR_20260930_V1.
+Do not execute from this handoff alone; no indoor rerun or reuse of consumed IDs. After future
+GPU and user human review, baseline-ready decision may be considered, not automatic.
+No formal data, feature expansion, prompt tuning, budget increase or model changes.
 
-Historical handoffs below are retained and do not override CURRENT.
+Prior CURRENT snapshots preserved in artifacts/verification-budget-repair-20260930/before-SESSION_HANDOFF.md.
+Historical handoffs below do not override CURRENT.
 
 # Historical handoff — Real Agent development implementation, 2026-09-29
 

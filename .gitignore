@@ -41,3 +41,6 @@ private-development/
 .idea/
 .DS_Store
 Thumbs.db
+
+# User private development-only photos; never commit or publish.
+/development_images/

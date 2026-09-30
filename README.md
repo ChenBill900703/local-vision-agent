@@ -1,5 +1,15 @@
 # Local Agentic Image Understanding on RTX 3070 Ti 8GB
 
+**目前：VERIFICATION BUDGET REPAIR = CPU READY / GPU VALIDATION PENDING。**
+已完成FIFO額度排程及報告v2；101項CPU測試、Ruff、Mypy通過。本階段未使用GPU。
+[修正契約](docs/VERIFICATION_BUDGET_REPAIR.md)／[前瞻GPU修訂（未授權執行）](docs/VERIFICATION_BUDGET_REPAIR_GPU_VALIDATION_AMENDMENT_2026-09-30.md)。
+既有natural-image CONDITIONAL不改判，尚未宣告工程基線READY。
+
+**目前 2026-09-30：REAL IMAGE DEVELOPMENT SANITY = CONDITIONAL。**
+室內圖於第8次呼叫後依安全上限停止，尚有2個候選敘述未驗證；GPU清理成功，室外圖未執行。
+[本次結果](docs/REAL_IMAGE_DEVELOPMENT_SANITY_RESULT.md)／[CURRENT交接](SESSION_HANDOFF.md)。
+原合成圖smoke PASS仍有效；本次尚未確認自然圖片工程基線READY。以下較早狀態保留歷史。
+
 **目前 2026-09-30：REAL INTERNVL AGENT GPU SMOKE = PASS。**
 原合成圖片、一次載入、Method D 六次真實呼叫，已走完 Agent／Adapter／RPC／persistent worker／繁中報告與清理。
 來源與既有整合 checkpoint 相同；不是 A–D 比較或論文假設驗證。無新依賴、下載、模型或政策變更。

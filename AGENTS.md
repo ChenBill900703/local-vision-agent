@@ -1,5 +1,25 @@
 # Project instructions
 
+## Verification budget CPU repair — 2026-09-30
+
+Explicit CPU-only implementation/tests/docs/local checkpoint authorized; NO GPU execution.
+FIFO remaining-budget scheduling implemented; report v2 exposes coverage and bounded partial
+verification, unselected claims unresolved, generation stop/truncation preserved.101 CPU tests,
+Ruff and strict Mypy28 PASS. GPU VALIDATION PENDING; no baseline READY.
+See current handoff and new prospective GPU amendment; it is NOT execution authorization.
+Prior indoor partial/TOOL_CALL_LIMIT and human review remain immutable; no reruns.
+
+## Real-image development sanity — 2026-09-30
+
+Two rights-confirmed local photos and metadata-free <=512 derivatives authorized.
+Indoor REAL_IMAGE_SANITY_20260930_INDOOR_DESK_001 consumed: partial TOOL_CALL_LIMIT,
+8calls,8candidates,6verified,2unresolved; cleanup/offline/placement/resource PASS.
+Overall CONDITIONAL; user human review:「整體可用，但保留截斷與未完成驗證的限制」。
+Review recorded in ignored evidence/human_review.json; no full PASS inferred. Outdoor NOT RUN; stop.
+No baseline READY, repair, rerun or limit relaxation inferred. See CURRENT handoff and
+REAL_IMAGE_DEVELOPMENT_SANITY_RESULT.md. Images never Git/public/cloud/formal test data.
+Prior synthetic smoke PASS remains immutable; all runtime source/config unchanged.
+
 ## Real adapter/Agent synthetic GPU smoke completed — 2026-09-30
 
 User explicitly authorized ONE new Method D session on the original synthetic fixture.
