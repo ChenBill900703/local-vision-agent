@@ -33,12 +33,27 @@ def to_markdown(report: Report) -> str:
         f"比較組別：{report.method.value}；狀態：{report.status}",
         f"停止原因：{report.stop_reason}；調查停止：{report.investigation_stop}",
         "",
+        "## 調查",
+        f"調查停止：{report.investigation_stop}",
+        "## 驗證覆蓋（非正確率）",
+        f"完成類型：{report.completion}；驗證停止：{report.verification_stop}",
+        f"候選：{report.candidate_claim_count}；驗證額度：{report.verification_budget}；嘗試：{report.verification_attempted}；完成：{report.verification_completed}；額度不足未驗證：{report.verification_unresolved_by_budget}",
+        "覆蓋率："
+        + (
+            f"{report.verification_coverage_ratio:.0%}"
+            if report.verification_coverage_ratio is not None
+            else "不適用（無候選）"
+        ),
         "## 簡述、場景與細節",
     ]
     for observation in report.observations:
         if observation.answer and observation.request.prompt_id != "verify":
             lines.extend(
-                [f"{observation.state} [{observation.call_id}]", literal(observation.answer.text)]
+                [
+                    f"{observation.state} [{observation.call_id}]",
+                    literal(observation.answer.text),
+                    f"輸出 tokens：{observation.answer.output_tokens}；生成停止：{observation.answer.generation_stop_reason}；truncated={str(observation.answer.truncated).lower()}",
+                ]
             )
     lines.extend(["", "## 敘述與驗證紀錄"])
     for claim in report.claims:
@@ -48,7 +63,7 @@ def to_markdown(report: Report) -> str:
                 (
                     f"狀態：{labels[claim.status]}；"
                     f"來源：{', '.join(claim.observation_ids)}；"
-                    f"驗證：{claim.verification_id or '未執行'}"
+                    f"驗證：{claim.verification_id or '未執行'}；原因：{claim.verification_reason or '無'}"
                 ),
             ]
         )

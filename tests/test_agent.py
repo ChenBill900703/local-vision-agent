@@ -305,10 +305,10 @@ class AgentTests(unittest.TestCase):
 
     def test_partial_verification_never_promotes_unchecked_claims(self):
         report = self.run_agent(max_tool_calls=5)
-        self.assertEqual(report.stop_reason, "TOOL_CALL_LIMIT")
+        self.assertEqual(report.stop_reason, "VERIFICATION_BUDGET_EXHAUSTED")
         self.assertEqual(report.claims[0].status, "unresolved")
         self.assertIsNotNone(report.claims[0].verification_id)
-        self.assertEqual(report.claims[1].status, "model-proposed")
+        self.assertEqual(report.claims[1].status, "unresolved")
         self.assertIsNone(report.claims[1].verification_id)
 
     def test_config_missing_limit_and_typo_fail_closed(self):

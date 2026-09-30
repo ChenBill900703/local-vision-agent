@@ -96,6 +96,7 @@ def run_development(
             report,
             status="partial" if report.observations else "failed",
             stop_reason="CLEANUP_FAILED",
+            completion="INCOMPLETE",
         )
     # Exclusive directory is established by transport.load; invalid inputs may leave no directory.
     if adapter.transport.owns_directory:

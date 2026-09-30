@@ -16,6 +16,7 @@ from .contracts import (
     Observation,
     Report,
     Request,
+    VerificationStop,
     VisionAdapter,
 )
 from .image_input import inspect_image
@@ -39,6 +40,9 @@ def validate_answer(answer: Answer, limits: Limits, remaining_tokens: int) -> No
         not isinstance(answer, Answer)
         or not isinstance(answer.text, str)
         or not answer.text.strip()
+        or type(answer.truncated) is not bool
+        or answer.generation_stop_reason not in ("unknown", "eos", "token_limit")
+        or answer.truncated != (answer.generation_stop_reason == "token_limit")
         or type(answer.uncertain) is not bool
         or type(answer.claims) is not tuple
         or type(answer.missing) is not tuple
@@ -55,6 +59,24 @@ def validate_answer(answer: Answer, limits: Limits, remaining_tokens: int) -> No
         raise AgentError("OUTPUT_LIMIT")
     if answer.output_tokens > min(limits.max_output_tokens, remaining_tokens):
         raise AgentError("OUTPUT_LIMIT")
+
+
+def verification_slots(limits: Limits, calls_used: int) -> int:
+    """FIFO capacity; no reserved model calls: reporting is non-model code.
+
+    The stricter tool/iteration/observation-memory ceilings also constrain capacity.
+    Token/time failures remain independent hard safety gates.
+    """
+    return max(
+        0,
+        min(
+            limits.max_model_calls,
+            limits.max_tool_calls,
+            limits.max_iterations,
+            limits.max_memory_entries,
+        )
+        - calls_used,
+    )
 
 
 class Agent:
@@ -95,6 +117,13 @@ class Agent:
         total_tokens = 0
         image = None
         investigation_stop = "NOT_STARTED"
+        verification_budget = verification_attempted = verification_completed = 0
+        verification_unresolved_by_budget = 0
+        verification_stop = (
+            VerificationStop.NOT_APPLICABLE
+            if method in (Method.A, Method.B)
+            else VerificationStop.NOT_REACHED
+        )
 
         def call(state: str, prompt_id: str, claim: str | None = None) -> Answer:
             nonlocal total_tokens
@@ -195,15 +224,36 @@ class Agent:
                     investigation_stop = "NO_TRIGGER"
                 if method in (Method.C, Method.D):
                     states.append("VERIFICATION")
-                    # Verification never feeds back into the investigation; B/D contrast.
-                    for index, candidate in enumerate(tuple(claims)):
+                    # Freeze FIFO selection before calls; never probe a known exhausted budget.
+                    verification_budget = verification_slots(limits, len(observations))
+                    verification_stop = VerificationStop.INTERRUPTED
+                    for index in range(min(len(claims), verification_budget), len(claims)):
+                        claims[index] = replace(
+                            claims[index],
+                            status="unresolved",
+                            verification_id=None,
+                            verification_reason="verification_budget_not_available",
+                        )
+                    verification_unresolved_by_budget = max(0, len(claims) - verification_budget)
+                    for index, candidate in enumerate(tuple(claims)[:verification_budget]):
+                        verification_attempted += 1
                         answer = call("VERIFICATION", "verify", candidate.text)
+                        verification_completed += 1
                         claims[index] = replace(
                             candidate,
                             status=answer.verdict,
                             verification_id=observations[-1].call_id,
                         )
-            reason = "COMPLETED"
+                    verification_stop = (
+                        VerificationStop.BUDGET_EXHAUSTED
+                        if verification_unresolved_by_budget
+                        else VerificationStop.COMPLETED
+                    )
+            reason = (
+                VerificationStop.BUDGET_EXHAUSTED.value
+                if verification_unresolved_by_budget
+                else "COMPLETED"
+            )
             status = "complete"
         except AgentError as exc:
             reason = exc.code
@@ -221,6 +271,20 @@ class Agent:
             tuple(claims),
             tuple(states),
             limits,
+            completion=(
+                "COMPLETED_WITH_PARTIAL_VERIFICATION"
+                if status == "complete" and verification_unresolved_by_budget
+                else "COMPLETED"
+                if status == "complete"
+                else "INCOMPLETE"
+            ),
+            verification_stop=verification_stop,
+            candidate_claim_count=len(claims),
+            verification_budget=verification_budget,
+            verification_attempted=verification_attempted,
+            verification_completed=verification_completed,
+            verification_unresolved_by_budget=verification_unresolved_by_budget,
+            verification_coverage_ratio=verification_completed / len(claims) if claims else None,
             model_id=self.adapter.model_id,
             model_revision=self.adapter.revision,
             evidence_kind="MOCK_NOT_RESEARCH_EVIDENCE"

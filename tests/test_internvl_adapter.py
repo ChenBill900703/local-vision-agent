@@ -94,16 +94,45 @@ class AdapterTests(unittest.TestCase):
         adapter.loaded = True
         adapter.image = ImageInfo("fixture", 8, 8, "PNG")
         with (
-            patch.object(adapter.transport, "request", return_value={"raw_response": "字" * 9000, "output_tokens": 1}),
+            patch.object(
+                adapter.transport,
+                "request",
+                return_value={"raw_response": "字" * 9000, "output_tokens": 1},
+            ),
             patch.object(adapter.transport, "abort"),
             self.assertRaisesRegex(AgentError, "OUTPUT_LIMIT"),
         ):
             adapter.invoke(Request("query", "scene", "CPU fixture", 128), adapter.image)
         self.assertTrue(adapter.failed)
 
+    def test_generation_stop_and_truncation_propagate_without_gpu(self):
+        for stop, tokens, truncated in (("token_limit", 128, True), ("eos", 128, False)):
+            adapter = InternVLAdapter(self.root, self.root / "no-process", self.config)
+            adapter.loaded = True
+            adapter.image = ImageInfo("fixture", 8, 8, "PNG")
+            with patch.object(
+                adapter.transport,
+                "request",
+                return_value={
+                    "raw_response": "CPU模擬原文",
+                    "output_tokens": tokens,
+                    "stop_reason": stop,
+                },
+            ):
+                answer = adapter.invoke(
+                    Request("caption", "caption", "CPU fixture", 128), adapter.image
+                )
+            self.assertEqual(answer.text, "CPU模擬原文")
+            self.assertEqual(answer.generation_stop_reason, stop)
+            self.assertEqual(answer.truncated, truncated)
+            self.assertEqual(answer.output_tokens, tokens)
+
     def test_dependency_drift_refuses_without_importing_model(self):
         with (
-            patch("local_vision_agent.internvl_contract.importlib.metadata.version", return_value="changed"),
+            patch(
+                "local_vision_agent.internvl_contract.importlib.metadata.version",
+                return_value="changed",
+            ),
             self.assertRaisesRegex(AgentError, "DEPENDENCY_DRIFT"),
         ):
             validate_environment()

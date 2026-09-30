@@ -18,6 +18,14 @@ class AgentError(RuntimeError):
         super().__init__(code)
 
 
+class VerificationStop(StrEnum):
+    NOT_APPLICABLE = "NOT_APPLICABLE"
+    NOT_REACHED = "NOT_REACHED"
+    COMPLETED = "COMPLETED"
+    BUDGET_EXHAUSTED = "VERIFICATION_BUDGET_EXHAUSTED"
+    INTERRUPTED = "INTERRUPTED"
+
+
 class Method(StrEnum):
     A = "A"
     B = "B"
@@ -99,6 +107,8 @@ class Answer:
     missing: tuple[str, ...] = ()
     verdict: str = "unresolved"
     output_tokens: int = 0
+    generation_stop_reason: str = "unknown"
+    truncated: bool = False
 
 
 class VisionAdapter(Protocol):
@@ -142,6 +152,11 @@ class Claim:
     observation_ids: tuple[str, ...]
     status: str = "model-proposed"
     verification_id: str | None = None
+    verification_reason: str | None = None
+
+    def __post_init__(self) -> None:
+        if self.status in ("supported", "contradicted") and not self.verification_id:
+            raise AgentError("VERIFICATION_EVIDENCE_REQUIRED")
 
 
 @dataclass(frozen=True)
@@ -160,8 +175,16 @@ class Report:
     model_id: str = "mock-scripted"
     model_revision: str = "fixture-v1"
     evidence_kind: str = "MOCK_NOT_RESEARCH_EVIDENCE"
-    schema_version: str = "agent-report-v1"
-    policy_revision: str = "bounded-policy-v1"
+    schema_version: str = "agent-report-v2"
+    policy_revision: str = "bounded-policy-v2-verification-fifo"
     peak_vram_mib: float | None = None
     model_latency_s: float | None = None
     runtime_metadata: dict[str, object] | None = None
+    completion: str = "INCOMPLETE"
+    verification_stop: VerificationStop = VerificationStop.NOT_REACHED
+    candidate_claim_count: int = 0
+    verification_budget: int = 0
+    verification_attempted: int = 0
+    verification_completed: int = 0
+    verification_unresolved_by_budget: int = 0
+    verification_coverage_ratio: float | None = None

@@ -1,6 +1,6 @@
 """Typed real VLM boundary. Explicit load/unload; never silently substitutes a mock."""
 
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from pathlib import Path
 from typing import Any
 
@@ -103,6 +103,10 @@ class InternVLAdapter:
             if not isinstance(raw, str):
                 raise AgentError("INVALID_TOOL_RESULT")
             answer = normalize_answer(raw, tokens, request)
+            stop = result.get("stop_reason", "unknown")
+            if stop not in ("eos", "token_limit", "unknown"):
+                raise AgentError("INVALID_GENERATION_STOP")
+            answer = replace(answer, generation_stop_reason=stop, truncated=stop == "token_limit")
             if len(raw) + sum(map(len, answer.claims)) > self.config.limits.max_response_chars:
                 raise AgentError("OUTPUT_LIMIT")
             self.trace.append({"request": asdict(request), **result})
