@@ -1,5 +1,18 @@
 # Project instructions
 
+## Real adapter/Agent synthetic GPU smoke completed — 2026-09-30
+
+User explicitly authorized ONE new Method D session on the original synthetic fixture.
+INTERNVL_REAL_AGENT_GPU_SMOKE_20260930 is CONSUMED: REAL INTERNVL AGENT GPU SMOKE = PASS.
+Unchanged runtime at c2ce0b24a61c257db9cdc232f45dd4c95e30521f; six actual calls, trace/report,
+offline/resource/placement/allocator-zero/worker-exit/device-recovery PASS in tested scope.
+No additional GPU run inferred. Real-image sanity NOT RUN (no rights-confirmed images).
+Do not declare engineering baseline ready yet. Next scope: proposal for <=2 non-sensitive
+rights-confirmed DEVELOPMENT images, then separately frozen bounded execution.
+See latest CURRENT in SESSION_HANDOFF.md, frozen smoke amendment and result report.
+No model/policy/preprocessing/dependency changes, model shopping, formal experiments or push.
+Preserve historical instructions/results below; their unverified states describe earlier stages.
+
 ## Integration implementation completed — 2026-09-28
 
 Real InternVLAdapter, guarded private backend, persistent JSON worker/watchdog and existing

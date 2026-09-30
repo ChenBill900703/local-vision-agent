@@ -1,5 +1,13 @@
 # Local Agentic Image Understanding on RTX 3070 Ti 8GB
 
+**目前 2026-09-30：REAL INTERNVL AGENT GPU SMOKE = PASS。**
+原合成圖片、一次載入、Method D 六次真實呼叫，已走完 Agent／Adapter／RPC／persistent worker／繁中報告與清理。
+來源與既有整合 checkpoint 相同；不是 A–D 比較或論文假設驗證。無新依賴、下載、模型或政策變更。
+[Smoke 結果](docs/REAL_INTERNVL_AGENT_GPU_SMOKE_RESULT.md)／[最新 CURRENT 交接](SESSION_HANDOFF.md)。
+真實圖片 sanity 尚未執行，尚不宣告工程基線 READY；[下一階段提案](docs/REAL_IMAGE_DEVELOPMENT_SANITY_PROPOSAL.md)。
+下方所有較早日期的狀態保留歷史，不覆蓋目前結果。
+
+
 **最新 2026-09-28：ADOPT INTERNVL3-2B-INSTRUCT AS PRIMARY VLM CANDIDATE。**
 新 capability pilot 的五次查詢與安全／離線／清理通過；使用者於原始輸出後人工確認全部能力及繁中可用。
 [採用決策](docs/INTERNVL3_ADOPTION_DECISION.md)／[能力補測結果](docs/INTERNVL3_AGENT_CAPABILITY_RESULT.md)。

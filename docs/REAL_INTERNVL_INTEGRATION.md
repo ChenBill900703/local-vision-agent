@@ -1,3 +1,13 @@
+# Verification update — 2026-09-30
+
+The unchanged integration at c2ce0b24a61c257db9cdc232f45dd4c95e30521f now has one actual
+Method D GPU end-to-end smoke PASS on the original synthetic fixture. Six actual calls,
+linked trace/Chinese report, placement/offline/budget/zero-cleanup/process recovery PASS.
+See [result](REAL_INTERNVL_AGENT_GPU_SMOKE_RESULT.md). No real-image sanity yet; this does
+not validate RQ2–RQ4 or all conditional branches. GPU allowance consumed; no further run.
+The implementation/CPU-stage record below is preserved as historical evidence; its NOT RUN
+statements describe the state before this separately authorized smoke.
+
 # Real InternVL adapter and bounded Agent — development implementation
 
 Implemented 2026-09-28; CPU closeout 2026-09-29. **DEVELOPMENT ONLY / NOT FORMAL THESIS RESULT**.

@@ -1,4 +1,53 @@
-# Current handoff — Real Agent development implementation, 2026-09-29
+# CURRENT — Real adapter/Agent synthetic GPU smoke PASS, 2026-09-30
+
+Phase: DEVELOPMENT ONLY / PILOT / NOT FORMAL THESIS RESULT.
+REAL INTERNVL AGENT GPU SMOKE = PASS.
+Latest run: INTERNVL_REAL_AGENT_GPU_SMOKE_20260930 (CONSUMED; do not repeat).
+Exact tested source HEAD: c2ce0b24a61c257db9cdc232f45dd4c95e30521f; branch main.
+Resume dirty state CLEAN; execution dirty state only the prospective smoke amendment.
+Closeout checkpoint: local `real-internvl-agent-gpu-smoke-pass` commit containing this CURRENT
+section. Resolve its exact HEAD with `git rev-parse HEAD`; exact final SHA/clean status stored
+in artifacts/internvl-real-agent-smoke-20260930/evidence/checkpoint.json after commit.
+No push. Prior last checkpoint: c2ce0b24a61c257db9cdc232f45dd4c95e30521f.
+
+One actual Method D through unchanged Agent -> InternVLAdapter -> RPC -> persistent CUDA
+worker completed: caption, scene, four verification calls; 65 generated tokens; NO_TRIGGER;
+COMPLETED. Object/detail decision states visited but no corresponding model calls selected.
+NO_NEW_EVIDENCE branch NOT exercised by this image; CPU fixtures only for that branch.
+Four literal candidate clauses link to raw observations and verification requests; all explicit
+supported responses parsed. Same-model support is not independent ground truth or quality metric.
+Raw Chinese preserved; structured Chinese report generated; no mock fallback or runtime cloud.
+
+Peak allocator4429.578MiB / reserved4688MiB; sampled device peak5137MiB.
+Full invocation44.531s, synchronized calls4.375s. Cleanup allocated0/reserved0, worker exit0,
+Windows Job empty, device246used/7772freeMiB equals baseline. Offline/placement/budget PASS
+within observed bounds. Shared GPU memory UNKNOWN. Before-cleanup allocator snapshot not
+separately sampled; timestamp/device sample and preceding call snapshot explicitly distinguished.
+
+Pre-run:93 CPU tests PASS (12.038s), Ruff PASS, strict Mypy28 PASS.
+Post-run:93 CPU tests PASS (10.513s), Ruff PASS, strict Mypy28 PASS.
+Result reconstruction/trace consistency PASS; logs retained in evidence/post-*.txt.
+Assets/dependencies/source/runtime config changed: NONE. Only reporting/audit/docs added.
+Frozen amendment: docs/REAL_INTERNVL_AGENT_GPU_SMOKE_AMENDMENT_2026-09-30.md.
+Result: docs/REAL_INTERNVL_AGENT_GPU_SMOKE_RESULT.md.
+Raw run: artifacts/internvl3-20260928/runs/INTERNVL_REAL_AGENT_GPU_SMOKE_20260930.
+Evidence: artifacts/internvl-real-agent-smoke-20260930/evidence.
+Backup: artifacts/internvl-real-agent-smoke-20260930-evidence-backup.
+All original InternVL/Moondream runs and controlled assets preserved; no extra load/retry.
+
+Remaining gate: no rights-confirmed real development images supplied; real-image sanity NOT RUN.
+Do NOT mark REAL LOCAL AGENT ENGINEERING BASELINE READY yet. No current demonstrated model/
+hardware/integration blocker for this synthetic path. General image quality not established.
+Exact next action: obtain <=2 non-sensitive rights-confirmed development images, then freeze
+and authorize the bounded real-image sanity scope in docs/REAL_IMAGE_DEVELOPMENT_SANITY_PROPOSAL.md.
+Do not run A/B/C/formal data, rerun any consumed pilot/smoke, tune prompts, change preprocessing,
+install/download, shop models or add features. After engineering acceptance, next major phase is
+FORMAL EXPERIMENT DESIGN FREEZE (data, truth, metrics, preprocessing, A-D prompts/triggers,
+limits, failures, repetitions and statistics). Formal test data remains untouched.
+
+Historical handoffs below are retained and do not override CURRENT.
+
+# Historical handoff — Real Agent development implementation, 2026-09-29
 
 ADOPT INTERNVL3-2B-INSTRUCT AS PRIMARY VLM CANDIDATE, user HUMAN review recorded.
 Model/tokenizer/config/template f6c7b60375759170fd49f5e9e298e2178485c5ba.
