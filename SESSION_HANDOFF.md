@@ -1,44 +1,56 @@
-# CURRENT — Smartphone source input CPU ready, 2026-09-30
+# CURRENT — Engineering baseline READY / formal design author review, 2026-10-01
 
-SMARTPHONE SOURCE INPUT = CPU READY.
-VERIFICATION BUDGET REPAIR = CPU READY.
-COMBINED GPU VALIDATION = PENDING AUTHORIZATION. No baseline READY.
-Exact source HEAD: bdf9dd2cb3b5657cf2e33a0efa5829b5b614c694; branch main.
-Final docs checkpoint contains same runtime/config; final SHA/clean status recorded in
-artifacts/smartphone-source-repair-20260930/checkpoint.json after local commit. No push.
+ENGINEERING BASELINE = READY.
+REAL LOCAL AGENT ENGINEERING BASELINE READY — ENGINEERING / DEVELOPMENT ONLY.
+COMBINED GPU VALIDATION = PASS, after author development-usable review and retained-file audit.
+FORMAL EXPERIMENT DESIGN = DRAFT READY FOR AUTHOR REVIEW. No formal execution.
 
-This phase CPU ONLY: no GPU query/import/init/load/inference or real indoor/outdoor run,
-no dependencies/downloads, no model/precision/preprocessing/Agent verificationpolicy change.
-110 CPU tests PASS(10.956s), Ruff PASS, strict Mypy29 PASS. Prior101-test repair retained.
-Large synthetic JPEGs + explicit CPU fake worker prove source ingress wiring, not GPU results.
+Resume/execution HEAD:54137bf9f0aa4bc39915bd69b3556b89ea5a9adf.
+Exact runtime source:bdf9dd2cb3b5657cf2e33a0efa5829b5b614c694; runtime/config/tests unchanged.
+Resume dirty: modified AGENTS.md,SESSION_HANDOFF.md; untracked combined result document.
+This turn updates documentation only and records ignored review/audit/backup evidence.
+Local documentation checkpoint planned after audit; exact resulting HEAD and final dirty
+state are recorded in artifacts/formal-design-20261001/evidence/checkpoint.json (avoids a
+self-referential commit hash). No push. Resolve current HEAD when resuming, verify that record.
 
-SourceImageLimits:32MiB compressed,32000000pixels,10000edge,JPEG/PNGsingleframe,strictdecode.
-Conservative64bytes/pixel working estimate+64MiBcompressed+1GiBoverhead~=2.97GiB on32GB;
-not measured/hardcapped. Reject oversized/malformed/truncated/bomb/unsupported beforeGPU.
-Runtime config internvl-development-v2 requires separate source_image_limits; existing
-limits image fields explicitly internal/model-facing <=10MiB/262144pixels/512edge.
-Original path/hash/bytes/dimensions/format retained; CPU EXIFtranspose/RGB/LANCZOS<=512 then
-ignored exclusive <run>-input/normalized.png with sourceprovenance, hash/dimensions recorded.
-Original never modified; small fixtures keep originalpath/bytes/pixels. Model still one448tile,
-aspect-ratio distortion and lost tiny/distant/OCR details remain development limitations.
+Consumed run SMARTPHONE_COMBINED_OUTDOOR_20260930_V1 remains immutable.14 raw/input hashes
+matched; original3472x4624JPEG -> automatic384x512 -> existing448tile, actual pinned
+InternVL/BF16/cuda0/MethodD.8calls,8candidates,6slots/6completed,2budget-unresolved,75%coverage,
+no ninthcall. COMPLETED_WITH_PARTIAL_VERIFICATION / VERIFICATION_BUDGET_EXHAUSTED.
+Offline/resource/placement/cleanup/process/device recovery PASS within tested scope.
+Retained pre/post110CPUtests,Ruff,strictMypy29 PASS; no tests or GPU rerun in this docs turn.
 
-Repair doc: docs/SMARTPHONE_SOURCE_INPUT_REPAIR.md.
-Old VERIFICATION_BUDGET_REPAIR_OUTDOOR_20260930_V1 amendment frozen NOT EXECUTED, do not use.
-New proposal: docs/SMARTPHONE_COMBINED_GPU_VALIDATION_AMENDMENT_2026-09-30.md.
-Proposed exclusive ID SMARTPHONE_COMBINED_OUTDOOR_20260930_V1; NOT RUN.
-Input MUST be original development_images/outdoor_scene_001.jpg, SHA256
-adaf0193b5a16a49526347ea2cd0561d4cd6580fd038290dbacf4e4dbf76e736,3472x4624.
-Application performs normalization; never supply manual edge512 as user input for that run.
+DEVELOPMENT HUMAN SANITY REVIEW (author, verbatim):
 
-Prior indoor partial TOOL_CALL_LIMIT/8claims/6checks/2unresolved/truncation/humanreview unchanged;
-prior synthetic smoke PASS unchanged. All consumed runs remain non-repeatable; no rawrewrite.
-Photos private/local/development only, no cloud/Git/publication/identity recognition.
-Exact next action: obtain authorization for ONE original-phone-photo combined GPU validation
-under NEW amendment, then prospective execution/humanreview. Do not execute from this handoff.
-No engineeringbaselineREADY or formal experiment; no feature expansion/modelshopping.
+> DEVELOPMENT HUMAN SANITY REVIEW：整體可用，主要場景與主要物件大致能辨識，但保留明顯語意錯誤與 hallucination。原圖中的裝飾主要為松果，不宜描述為金色球形飾物；聖誕樹底座的顏色／材質／四腳描述不準確；Caption 提到的「帶有透明蓋子的灰色杯子」在原圖中未見，視為明顯 nonexistent-object hallucination。背景主要為窗戶／遮光簾，描述為淺灰色背景牆亦不精確。Caption 與 Scene 均因 128-token limit 截斷。同模型 verification 對部分不準確 claim 仍回答 supported，顯示 over-acceptance/self-confirmation limitation。基於本階段僅驗證 engineering usability，我評為 development-usable；這不代表 accuracy、hallucination reduction 或 verification correctness PASS，也不作正式論文結果。
 
-Previous CURRENT preserved in artifacts/smartphone-source-repair-20260930/previous_handoff.md.
-Historical handoffs below do not override CURRENT.
+No quantitative score inferred. No generalaccuracy, hallucinationreduction, verification
+correctness, RQ2/RQ3/RQ4 success, D superiority, significance or production readiness.
+Source/input/raw report/previous technical audit not rewritten. Historical partial indoor,
+synthetic smoke, all InternVL pilots and Moondream negative results remain unchanged.
+Review/audit/prior CURRENT snapshots:artifacts/formal-design-20261001/evidence/.
+
+Created docs/ENGINEERING_BASELINE_DECISION.md and:
+- docs/FORMAL_EXPERIMENT_DESIGN.md
+- docs/FORMAL_DATA_PROTOCOL.md
+- docs/FORMAL_METRICS.md
+- docs/FORMAL_METHODS_ABCD.md
+- docs/FORMAL_STATISTICAL_PLAN.md
+- docs/FORMAL_OPEN_QUESTIONS.md
+
+Draft selections:single448square P1,128tokens/call,8calls,400paired COCO2017-val subset
+images plus40design images, full raw atomic human scoring and separate endorsement view.
+Author approval pending. Exact image IDs/hashes/rights, independent references/annotators,
+institutional requirements, CPU-tested scoring and formal runner/measurement freeze remain
+BLOCKERS. No data acquired; no prompts tuned; no formal outputs inspected. Feature expansion
+frozen: no Webcam/GUI/OCR/detector/video/secondVLM/quantization/fine-tuning/cloud/new runtime.
+No more development GPU execution authorized, no consumed run retry.
+
+Exact next action: author reviews six-document draft and decisions/blockers. Only after
+review request separately scoped acquisition/evaluation-preparation and eventual formal
+execution authorization. Do not treat baselineREADY or this design as permission to run.
+Prior CURRENT retained byte-for-byte in evidence/before-SESSION_HANDOFF.md;
+historical sections below retained byte-for-byte and never override CURRENT.
 
 # Historical handoff — Real Agent development implementation, 2026-09-29
 

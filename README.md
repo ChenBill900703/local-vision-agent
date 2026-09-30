@@ -1,3 +1,32 @@
+# Current status — 2026-10-01
+
+**ENGINEERING BASELINE = READY** — engineering/development only.
+**FORMAL EXPERIMENT DESIGN = DRAFT READY FOR AUTHOR REVIEW**.
+
+Combined smartphone validation is closed PASS after the author's explicit development-usable
+review. Hallucinations, inaccurate attributes, truncated answers and verifier over-acceptance
+remain negative evidence; no semantic accuracy, RQ2–RQ4 or formal thesis success claimed.
+[Baseline decision](docs/ENGINEERING_BASELINE_DECISION.md) /
+[Combined result with verbatim human review](docs/SMARTPHONE_COMBINED_GPU_VALIDATION_RESULT.md).
+
+New prospective design package: [overview](docs/FORMAL_EXPERIMENT_DESIGN.md),
+[data and human rubric](docs/FORMAL_DATA_PROTOCOL.md), [metrics](docs/FORMAL_METRICS.md),
+[A/B/C/D](docs/FORMAL_METHODS_ABCD.md), [statistics](docs/FORMAL_STATISTICAL_PLAN.md),
+[open decisions/blockers](docs/FORMAL_OPEN_QUESTIONS.md).
+Proposed v1 selects common single448tile/G128,400 paired images and independent human truth.
+These design choices await author approval; manifests/rights/references/scoring remain blockers.
+No formal execution, acquisition, new GPU run or feature expansion authorized.
+
+Authorization record: user/author supplied the exact closeout review and design-only scope
+on2026-10-01; retained attachment and audit in `artifacts/formal-design-20261001/evidence/`.
+Engineering usability confirmed by author; design choices proposed by Codex; institutional/
+advisor/ethics approval UNKNOWN. Source unchanged; prior110CPU/Ruff/strictMypy29 PASS retained,
+not rerun in this documentation-only phase. AI assistance: evidence audit and draft writing,
+not image judging or runtime. [CURRENT handoff](SESSION_HANDOFF.md) controls resume scope.
+All statuses below are historical snapshots, retained verbatim.
+
+---
+
 # Local Agentic Image Understanding on RTX 3070 Ti 8GB
 
 **目前：SMARTPHONE SOURCE INPUT = CPU READY；VERIFICATION BUDGET REPAIR = CPU READY。**

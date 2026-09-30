@@ -1,4 +1,28 @@
+# Current authorization and baseline closeout — 2026-10-01
+
+COMBINED GPU VALIDATION = PASS, ENGINEERING / DEVELOPMENT ONLY.
+REAL LOCAL AGENT ENGINEERING BASELINE READY after explicit author development-usable review.
+Review retains nonexistent cup, incorrect ornament/base/background claims,128token
+truncation and same-model over-acceptance; NOT semantic accuracy/RQ2–RQ4 success.
+All consumed GPU runs remain consumed. No new GPU or dataset acquisition authorized.
+Engineering feature expansion and development-photo prompt tuning are frozen.
+Formal six-document design v1 is DRAFT READY FOR AUTHOR REVIEW, not execution approval.
+See CURRENT, docs/ENGINEERING_BASELINE_DECISION.md, docs/FORMAL_EXPERIMENT_DESIGN.md
+and docs/FORMAL_OPEN_QUESTIONS.md. This turn is evidence audit/docs/local checkpoint only;
+no source/config/dependency changes or new tests required. Author/institution approval,
+actual data manifests, human references and formal scoring/runner freeze remain blockers.
+Historical instructions and negative evidence below remain preserved; pending states below
+refer to their historical dates and do not override this current instruction.
+
 # Project instructions
+
+## Combined GPU validation — 2026-09-30
+
+User authorized ONE SMARTPHONE_COMBINED_OUTDOOR_20260930_V1; now CONSUMED.
+TECHNICAL PASS / HUMAN REVIEW PENDING. Original3472x4624JPEG auto-normalized, actualD
+8calls/6checks/2budget-unresolved/75%coverage; normal boundedcompletion; cleanup/offline/
+placement/resourcePASS. No baselineREADY until userreview; no extraGPU/rerun/features.
+See CURRENT and SMARTPHONE_COMBINED_GPU_VALIDATION_RESULT.md. Preserve all history.
 
 ## Smartphone source input CPU repair — 2026-09-30
 
