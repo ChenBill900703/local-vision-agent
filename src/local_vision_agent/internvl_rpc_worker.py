@@ -13,6 +13,7 @@ from .contracts import AgentError, ImageInput, Limits, Request
 from .internvl_backend import InternVLBackend
 from .internvl_contract import RuntimeConfig
 from .pilot_worker import Evidence
+from .source_input import SourceImageLimits
 
 
 def serve(root: Path, directory: Path, configuration: Path) -> int:
@@ -23,6 +24,7 @@ def serve(root: Path, directory: Path, configuration: Path) -> int:
     try:
         values = json.loads(configuration.read_text(encoding="utf8"))
         values["limits"] = Limits(**values["limits"])
+        values["source_image_limits"] = SourceImageLimits.from_dict(values["source_image_limits"])
         config = RuntimeConfig(**values)
         backend = InternVLBackend(root, config, evidence)
         evidence.emit("response", id=0, op="load", payload=backend.load())

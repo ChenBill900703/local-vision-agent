@@ -11,6 +11,7 @@ from typing import Any
 
 from .contracts import AgentError, Answer, Limits, Request
 from .pilot_policy import PilotLimits
+from .source_input import SourceImageLimits
 
 PREPROCESSING = "internvl-single-tile-rgb-bicubic448-imagenet-v1"
 NORMALIZER = "literal-sentence-claims-explicit-verdict-v1"
@@ -43,6 +44,7 @@ def validate_environment() -> dict[str, str]:
 @dataclass(frozen=True)
 class RuntimeConfig:
     limits: Limits
+    source_image_limits: SourceImageLimits
     preprocessing: str
     load_timeout_s: float
     session_timeout_s: float
@@ -51,6 +53,9 @@ class RuntimeConfig:
         if type(self.limits) is not Limits or self.preprocessing != PREPROCESSING:
             raise AgentError("INVALID_RUNTIME_CONFIG")
         self.limits.__post_init__()
+        if type(self.source_image_limits) is not SourceImageLimits:
+            raise AgentError("MISSING_SOURCE_LIMITS")
+        self.source_image_limits.__post_init__()
         ceiling = PilotLimits()
         comparisons = (
             (self.limits.max_tool_calls, 8),
@@ -80,12 +85,16 @@ def load_runtime_config(path: Path) -> RuntimeConfig:
         with path.open("rb") as stream:
             data = tomllib.load(stream)
         if (
-            set(data) != {"schema", "adapter", "runtime", "limits"}
-            or data["schema"] != "internvl-development-v1"
+            set(data) != {"schema", "adapter", "runtime", "limits", "source_image_limits"}
+            or data["schema"] != "internvl-development-v2"
             or data["adapter"] != "internvl3-pinned"
         ):
             raise ValueError("schema")
-        return RuntimeConfig(Limits(**data["limits"]), **data["runtime"])
+        return RuntimeConfig(
+            Limits(**data["limits"]),
+            SourceImageLimits.from_dict(data["source_image_limits"]),
+            **data["runtime"],
+        )
     except (OSError, TypeError, ValueError) as exc:
         raise AgentError("INVALID_RUNTIME_CONFIG") from exc
 

@@ -40,6 +40,7 @@ from pathlib import Path
 from local_vision_agent.internvl_contract import RuntimeConfig
 from local_vision_agent.internvl_policy import REVISION
 from local_vision_agent.contracts import Limits,ImageInput
+from local_vision_agent.source_input import SourceImageLimits
 from local_vision_agent.image_input import inspect_image
 from dataclasses import asdict
 parser=argparse.ArgumentParser();parser.add_argument('--root');parser.add_argument('--run-dir');parser.add_argument('--configuration');a=parser.parse_args()
@@ -47,7 +48,7 @@ def emit(phase,**values):
  print(json.dumps(dict(phase=phase,pid=os.getpid(),monotonic=time.monotonic(),**values),ensure_ascii=False),flush=True)
 def reply(n,op,payload):emit('response',id=n,op=op,payload=payload)
 emit('ready');assert sys.stdin.readline().strip()=='GO'
-c=json.loads(Path(a.configuration).read_text(encoding='utf8'));c['limits']=Limits(**c['limits']);config=RuntimeConfig(**c)
+c=json.loads(Path(a.configuration).read_text(encoding='utf8'));c['limits']=Limits(**c['limits']);c['source_image_limits']=SourceImageLimits.from_dict(c['source_image_limits']);config=RuntimeConfig(**c)
 reply(0,'load',dict(model_id='OpenGVLab/InternVL3-2B-Instruct',revision=REVISION,device='cuda:0',fixture=True))
 count=0
 for line in sys.stdin:
@@ -200,6 +201,30 @@ class AdapterTests(unittest.TestCase):
             return real_popen(command, **kwargs)
 
         return patch("local_vision_agent.internvl_transport.subprocess.Popen", side_effect=launch)
+
+    @unittest.skipUnless(os.name == "nt", "CPU fixture Windows transport")
+    def test_original_phone_dimensions_through_real_entry_cpu_fixture(self):
+        Image.new("RGB", (3472, 4624), "white").save(self.path, format="JPEG")
+        snapshot = GpuSnapshot("CPU fixture", 8192, 200, 7800)
+        with (
+            self._patch_transport("clear"),
+            patch(
+                "local_vision_agent.internvl_transport.query_gpu_snapshot", return_value=snapshot
+            ),
+            patch(
+                "local_vision_agent.pilot_supervisor_repair.query_gpu_snapshot",
+                return_value=snapshot,
+            ),
+        ):
+            report = run_development(
+                self.item, Method.D, self.root, self.root / "phone", self.config
+            )
+        self.assertEqual(report.status, "complete")
+        self.assertEqual((report.image.width, report.image.height), (384, 512))
+        self.assertEqual(report.input_id, self.item.input_id)
+        self.assertEqual(report.runtime_metadata["source_input"]["source_width"], 3472)
+        self.assertEqual(report.runtime_metadata["source_input"]["source_height"], 4624)
+        self.assertTrue(report.runtime_metadata["cleanup"]["job_empty"])
 
     def test_existing_run_never_overwritten_and_invalid_image_never_loads(self):
         existing = self.root / "immutable-run"

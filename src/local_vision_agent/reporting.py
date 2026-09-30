@@ -46,6 +46,15 @@ def to_markdown(report: Report) -> str:
         ),
         "## 簡述、場景與細節",
     ]
+    source = (report.runtime_metadata or {}).get("source_input")
+    if isinstance(source, dict) and source:
+        lines.extend(
+            [
+                "## 原始影像與CPU正規化",
+                literal(json.dumps(source, ensure_ascii=False)),
+                "接受高解析原圖不表示保留細節；CPU縮小後微小文字、遠處物件可能消失，模型仍只接收一張448×448 tile。",
+            ]
+        )
     for observation in report.observations:
         if observation.answer and observation.request.prompt_id != "verify":
             lines.extend(

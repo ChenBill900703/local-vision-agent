@@ -9,11 +9,11 @@ from uuid import uuid4
 
 from .agent import Agent
 from .contracts import AgentError, ImageInput, Method, Report
-from .image_input import inspect_image
 from .internvl_adapter import InternVLAdapter
 from .internvl_contract import NORMALIZER, RuntimeConfig, load_runtime_config
 from .internvl_policy import REVISION
 from .reporting import to_json, to_markdown
+from .source_input import prepare_source
 
 
 def run_development(
@@ -35,11 +35,19 @@ def run_development(
     report: Report | None = None
     adapter = InternVLAdapter(asset_root, evidence_directory, config)
     cleanup_error: str | None = None
+    source_metadata: dict[str, object] = {}
     try:
-        inspect_image(item, config.limits)  # Bad input rejected before GPU query/load.
+        bounded, source_metadata = prepare_source(
+            item,
+            config.source_image_limits,
+            config.limits,
+            evidence_directory.with_name(evidence_directory.name + "-input"),
+        )
         adapter.load()
-        adapter.begin_image(item)
-        report = Agent(config.limits, adapter, executor=adapter).run(item, method)
+        image = adapter.begin_image(bounded)
+        if image.sha256 != source_metadata["model_input"]["sha256"]:  # type: ignore[index]
+            raise AgentError("SOURCE_CHANGED")
+        report = Agent(config.limits, adapter, executor=adapter).run(bounded, method)
     except Exception as exc:  # noqa: BLE001 -- explicit failure report, no fallback
         code = exc.code if isinstance(exc, AgentError) else "RUNTIME_FAILURE:" + type(exc).__name__
         report = Report(
@@ -72,6 +80,7 @@ def run_development(
     peaks = [m["peak_reserved_bytes"] / 1048576 for m in measurements if "peak_reserved_bytes" in m]
     latency = sum(x["latency_s"] for x in adapter.trace) if adapter.trace else None
     metadata: dict[str, object] = {
+        "source_input": source_metadata,
         "preprocessing": config.preprocessing,
         "normalizer": NORMALIZER,
         "raw_trace": str(adapter.directory / "events.jsonl"),

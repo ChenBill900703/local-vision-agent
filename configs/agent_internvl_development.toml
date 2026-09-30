@@ -1,5 +1,5 @@
 # Development configuration; no automatic GPU authorization or formal evaluation freeze.
-schema = "internvl-development-v1"
+schema = "internvl-development-v2"
 adapter = "internvl3-pinned"
 
 [runtime]
@@ -7,6 +7,7 @@ preprocessing = "internvl-single-tile-rgb-bicubic448-imagenet-v1"
 load_timeout_s = 180.0
 session_timeout_s = 1800.0
 
+# These image limits apply ONLY to normalized/internal model-facing input.
 [limits]
 max_tool_calls = 8
 max_model_calls = 8
@@ -23,3 +24,9 @@ max_total_output_tokens = 1024
 max_response_chars = 8192
 max_memory_entries = 8
 max_batch_images = 1
+
+[source_image_limits]
+max_compressed_bytes = 33554432
+max_decoded_pixels = 32000000
+max_source_edge_px = 10000
+formats = ["JPEG", "PNG"]
