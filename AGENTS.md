@@ -1,5 +1,14 @@
 # Project instructions
 
+## Smartphone source input CPU repair — 2026-09-30
+
+CPU-only source ingress implemented:32MiB/32MP/10000edgeJPEGPNG, strictdecode, automatic
+EXIF/RGB/aspect-preserving512 normalization before unchanged448tile modelpath. Original
+identity/hash/metadata retained; separate required source limits in config v2.110 CPU tests,
+Ruff,Mypy29 PASS. Verification budget repair retained. NO GPU execution or baseline READY.
+Old derivative-based GPU amendment NOT EXECUTED; use only NEW prospective combined original-
+phone amendment after separate explicit authorization. No reruns or image uploads.
+
 ## Verification budget CPU repair — 2026-09-30
 
 Explicit CPU-only implementation/tests/docs/local checkpoint authorized; NO GPU execution.

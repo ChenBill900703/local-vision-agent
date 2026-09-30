@@ -1,39 +1,43 @@
-# CURRENT — Verification budget repair CPU ready, 2026-09-30
+# CURRENT — Smartphone source input CPU ready, 2026-09-30
 
-VERIFICATION BUDGET REPAIR = CPU READY / GPU VALIDATION PENDING.
-Exact repaired source HEAD: 538ef24c13686cbf2cc378ae8d078e8645beed34; branch main.
-Final docs checkpoint containing this CURRENT section preserves that exact runtime source;
-final HEAD/clean status recorded after commit in artifacts/verification-budget-repair-20260930/checkpoint.json.
-No push. This phase has NO GPU execution/query/load, image inference, installs or downloads.
+SMARTPHONE SOURCE INPUT = CPU READY.
+VERIFICATION BUDGET REPAIR = CPU READY.
+COMBINED GPU VALIDATION = PENDING AUTHORIZATION. No baseline READY.
+Exact source HEAD: bdf9dd2cb3b5657cf2e33a0efa5829b5b614c694; branch main.
+Final docs checkpoint contains same runtime/config; final SHA/clean status recorded in
+artifacts/smartphone-source-repair-20260930/checkpoint.json after local commit. No push.
 
-FIFO verification budget planned before calls, constrained by remaining model/tool/iteration/
-observation-memory caps; zero reserved modelcalls.8claims after2calls ->6checks,2unresolved,
-coverage75%; normal COMPLETED_WITH_PARTIAL_VERIFICATION / VERIFICATION_BUDGET_EXHAUSTED.
-Hard call limits and failure handling retained. Report schema v2 separates investigation_stop,
-verification_stop/coverage and generation stop/tokens/truncated. No prompt, triggers, candidate
-extraction, model, precision, config, limits or preprocessing change. Same-model verification
-is not independent truth; truncation/subjective over-acceptance remain research limitations.
+This phase CPU ONLY: no GPU query/import/init/load/inference or real indoor/outdoor run,
+no dependencies/downloads, no model/precision/preprocessing/Agent verificationpolicy change.
+110 CPU tests PASS(10.956s), Ruff PASS, strict Mypy29 PASS. Prior101-test repair retained.
+Large synthetic JPEGs + explicit CPU fake worker prove source ingress wiring, not GPU results.
 
-101 CPU tests PASS(10.394s), Ruff PASS, strict Mypy28 PASS. Explicit CPU fixtures only.
-No new GPU validation evidence. Tests include FIFO/zero/smaller/exact slots, buggy planner
-backstop, coverage/report consistency, failures, A-D semantics and adapter truncation receipts.
-Repair doc: docs/VERIFICATION_BUDGET_REPAIR.md. Logs/source/preservation in ignored artifacts.
-Prospective frozen amendment: docs/VERIFICATION_BUDGET_REPAIR_GPU_VALIDATION_AMENDMENT_2026-09-30.md.
+SourceImageLimits:32MiB compressed,32000000pixels,10000edge,JPEG/PNGsingleframe,strictdecode.
+Conservative64bytes/pixel working estimate+64MiBcompressed+1GiBoverhead~=2.97GiB on32GB;
+not measured/hardcapped. Reject oversized/malformed/truncated/bomb/unsupported beforeGPU.
+Runtime config internvl-development-v2 requires separate source_image_limits; existing
+limits image fields explicitly internal/model-facing <=10MiB/262144pixels/512edge.
+Original path/hash/bytes/dimensions/format retained; CPU EXIFtranspose/RGB/LANCZOS<=512 then
+ignored exclusive <run>-input/normalized.png with sourceprovenance, hash/dimensions recorded.
+Original never modified; small fixtures keep originalpath/bytes/pixels. Model still one448tile,
+aspect-ratio distortion and lost tiny/distant/OCR details remain development limitations.
 
-Historical natural-image phase remains CONDITIONAL; indoor REAL_IMAGE_SANITY_20260930_INDOOR_DESK_001
-consumed, partial TOOL_CALL_LIMIT,8claims/6checks/2unresolved,caption128token truncation.
-User review:「整體可用，但保留截斷與未完成驗證的限制」。All raw outputs/review immutable.
-Synthetic INTERNVL_REAL_AGENT_GPU_SMOKE_20260930 PASS remains immutable; all earlier pilots consumed.
-Outdoor original/approved derivative still NOT GPU RUN. No engineering baseline READY.
-Private photos remain ignored/local-only; no image uploads/Git/publication/identity inference.
+Repair doc: docs/SMARTPHONE_SOURCE_INPUT_REPAIR.md.
+Old VERIFICATION_BUDGET_REPAIR_OUTDOOR_20260930_V1 amendment frozen NOT EXECUTED, do not use.
+New proposal: docs/SMARTPHONE_COMBINED_GPU_VALIDATION_AMENDMENT_2026-09-30.md.
+Proposed exclusive ID SMARTPHONE_COMBINED_OUTDOOR_20260930_V1; NOT RUN.
+Input MUST be original development_images/outdoor_scene_001.jpg, SHA256
+adaf0193b5a16a49526347ea2cd0561d4cd6580fd038290dbacf4e4dbf76e736,3472x4624.
+Application performs normalization; never supply manual edge512 as user input for that run.
 
-Exact next action: obtain explicit approval for ONE prospective outdoor validation under the
-new amendment, source 538ef24c13686cbf2cc378ae8d078e8645beed34. Proposed ID VERIFICATION_BUDGET_REPAIR_OUTDOOR_20260930_V1.
-Do not execute from this handoff alone; no indoor rerun or reuse of consumed IDs. After future
-GPU and user human review, baseline-ready decision may be considered, not automatic.
-No formal data, feature expansion, prompt tuning, budget increase or model changes.
+Prior indoor partial TOOL_CALL_LIMIT/8claims/6checks/2unresolved/truncation/humanreview unchanged;
+prior synthetic smoke PASS unchanged. All consumed runs remain non-repeatable; no rawrewrite.
+Photos private/local/development only, no cloud/Git/publication/identity recognition.
+Exact next action: obtain authorization for ONE original-phone-photo combined GPU validation
+under NEW amendment, then prospective execution/humanreview. Do not execute from this handoff.
+No engineeringbaselineREADY or formal experiment; no feature expansion/modelshopping.
 
-Prior CURRENT snapshots preserved in artifacts/verification-budget-repair-20260930/before-SESSION_HANDOFF.md.
+Previous CURRENT preserved in artifacts/smartphone-source-repair-20260930/previous_handoff.md.
 Historical handoffs below do not override CURRENT.
 
 # Historical handoff — Real Agent development implementation, 2026-09-29
