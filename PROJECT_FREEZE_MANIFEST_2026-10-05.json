@@ -1,0 +1,558 @@
+{
+  "schema": "local-vision-agent-freeze-v1",
+  "project_status": "FROZEN BACKUP RESEARCH PROTOTYPE",
+  "engineering_verdict": "PROJECT FROZEN WITH KNOWN BLOCKER",
+  "date": "2026-10-05",
+  "timestamp": "2026-10-05T16:45:03.310844+08:00",
+  "git_commit": "local-vision-agent-v1.0-frozen^{commit}",
+  "git_commit_representation": "exact annotated tag commit ref; resolved literal final HEAD in ignored post-commit final_git_receipt.json; no self-referential hash claim",
+  "pre_freeze_parent_commit": "cf4ec1455b8a12026d0ebd849e3a6cb1b9514cce",
+  "tag": "local-vision-agent-v1.0-frozen",
+  "branch": "main",
+  "tree_state": "clean at final freeze, verified by post-commit receipt",
+  "assembly_tree_state": "authorized dirty changes before freeze commit",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "packages": {
+    "certifi": {
+      "version": "2026.7.22",
+      "installed_record_sha256": "fdbf883b39f922b31def6bd3a2a49927d0ef77702487b0047bc1498f777bcb18"
+    },
+    "charset-normalizer": {
+      "version": "3.5.1",
+      "installed_record_sha256": "dfdf003c325f95d9ce63815aaad9af4fbedd1511974b6fd5480e193d3988b226"
+    },
+    "cloudpickle": {
+      "version": "3.1.2",
+      "installed_record_sha256": "99673ca23b64c3e102bad5e8f4361520424120f4c5316347c6c299795b2ad3fd"
+    },
+    "colorama": {
+      "version": "0.4.6",
+      "installed_record_sha256": "2ae3762039c35c23e4829bab30f8e768eced773ecac67d026223caabfbd493f4"
+    },
+    "contourpy": {
+      "version": "1.3.3",
+      "installed_record_sha256": "bf8cb8b06fd7d3d0608013205f2ed0ce8486922b1fd5238f16718e932b1a7e3f"
+    },
+    "coverage": {
+      "version": "7.16.1",
+      "installed_record_sha256": "451f7d21de8a46ef06b36fe037fb6b2112c193cdc77c44e1ddbc334b47c88dd1"
+    },
+    "cycler": {
+      "version": "0.12.1",
+      "installed_record_sha256": "564b9fd56f9f1730196522406a8ac8766040b69bc979b97b325e05f3490f6108"
+    },
+    "filelock": {
+      "version": "3.32.3",
+      "installed_record_sha256": "38381edd35e5a415f875adc3b6bca2f86ec1cd1daf75198442cbb2d077da8f72"
+    },
+    "fonttools": {
+      "version": "4.65.0",
+      "installed_record_sha256": "db10044834e4f6370b77b8d93e929cad5ce33c1221e45e614b3b299e8d76c1fc"
+    },
+    "fsspec": {
+      "version": "2026.7.0",
+      "installed_record_sha256": "0aeebe50f0a4f2c21d00c20da1786a8ca069b3c95f7e63c0a9d6830d2fa0b382"
+    },
+    "huggingface-hub": {
+      "version": "0.36.2",
+      "installed_record_sha256": "37d284485667efea041c8e3311f963f2c99a60f2322c3acdffcad2a8eb3d2799"
+    },
+    "idna": {
+      "version": "3.20",
+      "installed_record_sha256": "32940fd218b123eed10f1ef60a87c923dbf32e49d7eb0ebb69469624e9e1705b"
+    },
+    "iniconfig": {
+      "version": "2.3.0",
+      "installed_record_sha256": "60cf1998a07c4c4d314d586130c9caba025b3caf655b5260716ddc3a54262c7a"
+    },
+    "jinja2": {
+      "version": "3.1.6",
+      "installed_record_sha256": "91151bad4737abfc252611c853e57e3d14dc7e64151a2dd0949766ad33886c22"
+    },
+    "joblib": {
+      "version": "1.6.0",
+      "installed_record_sha256": "a77b6d0136afb30f8c62758f2c1177a5d1a63f50e1dfeeb83bc6ffa638f54392"
+    },
+    "kiwisolver": {
+      "version": "1.5.1",
+      "installed_record_sha256": "3ef00836b63d127226322ba67a7ad7af80b7589d748e64c9267589cc4afa6e55"
+    },
+    "librt": {
+      "version": "0.15.0",
+      "installed_record_sha256": "05c5f958ed1022f557068213c333a51d8b703a62287b58e9807a3696078a490c"
+    },
+    "local-visual-agent": {
+      "version": "0.1.0",
+      "installed_record_sha256": "90420a21002d48d03d053e11b331888b07d8133d08f2421b269c05d8da5478bf"
+    },
+    "markupsafe": {
+      "version": "3.0.3",
+      "installed_record_sha256": "f33381aa18a072ad47196b969cf47c80353d881974940731aa22703afa9a6e88"
+    },
+    "matplotlib": {
+      "version": "3.11.2",
+      "installed_record_sha256": "fc951f7f345a5005c3f5951af50c7e743d1b45b96483f2b3fd067535b7d75a0d"
+    },
+    "mpmath": {
+      "version": "1.3.0",
+      "installed_record_sha256": "8052e4c7314cdcbc6c50183c546a342e58a1a9e4589d1354d31a4ef3a705c395"
+    },
+    "mypy": {
+      "version": "1.20.2",
+      "installed_record_sha256": "80882d51fb8a05241a941914c9ae28c81fb764074e415b46136f29d7d7cf131f"
+    },
+    "mypy-extensions": {
+      "version": "1.1.0",
+      "installed_record_sha256": "20f0c754257dcfc94b88d5e5dba2f7bd59504a76c0c8c481231df037a1cc894f"
+    },
+    "narwhals": {
+      "version": "2.26.0",
+      "installed_record_sha256": "22e1ab03d906d2113b9f273dbb493944f2a3e1f96a8453aab37f1566e787d4fb"
+    },
+    "networkx": {
+      "version": "3.6.1",
+      "installed_record_sha256": "49f886bed4a792d468907152977bc6f3ce2f2cca84732c927f3df057be2f5657"
+    },
+    "numpy": {
+      "version": "2.4.6",
+      "installed_record_sha256": "1ddf0b69dc3f6102348d8e2206c889ee35b16a29078bacf886abae7e5f31acbb"
+    },
+    "packaging": {
+      "version": "26.3",
+      "installed_record_sha256": "194236f63fa503ef6bc832807d7f1a28f6b8c645a208880d557244ef4941adbc"
+    },
+    "pandas": {
+      "version": "2.3.3",
+      "installed_record_sha256": "8997353bb8feda292902c5f53c6b5000adc28b34ced2a48d1daadb6d74a10537"
+    },
+    "pathspec": {
+      "version": "1.1.1",
+      "installed_record_sha256": "31e240696c6b240fcae7ff9130b3bc800e441db8cc8fec59cd6eb703831c9fc9"
+    },
+    "pillow": {
+      "version": "12.3.0",
+      "installed_record_sha256": "af50a8276f413a87f9d5e3c26e5e8bc02deb22f005394860cafe29c2b789e0cc"
+    },
+    "pip": {
+      "version": "26.2.1",
+      "installed_record_sha256": "667ac0d80a935974b2e09997869e5f62845ca13067be8beace4302c4ef872418"
+    },
+    "pluggy": {
+      "version": "1.6.0",
+      "installed_record_sha256": "ac3c42a936c786b42b92f6c5310ed48f760330718f071c3c4c31855a1717544b"
+    },
+    "pygments": {
+      "version": "2.21.0",
+      "installed_record_sha256": "c68d350c2ee8f5d5679fa382a89bb718c9df37ec45b959f2c690d36a97ea53af"
+    },
+    "pyparsing": {
+      "version": "3.3.3",
+      "installed_record_sha256": "c4acc104075f051ef5cdbf737bb7c31190df3e9e75c3689f191f14760a29486f"
+    },
+    "pyside6": {
+      "version": "6.8.3",
+      "installed_record_sha256": "ef7bd8b87c409fd870962212cd7a160c75d07fa6581b441815a0ecd740a661e1"
+    },
+    "pyside6-addons": {
+      "version": "6.8.3",
+      "installed_record_sha256": "14708f9396ecfb9d9010c67f15280584ab6769ebbbc965af76e228f9467837b8"
+    },
+    "pyside6-essentials": {
+      "version": "6.8.3",
+      "installed_record_sha256": "b45dcf606d715ad401a86f3eb6bf5d17d3d73725333dce7eb91d19ed10d27b67"
+    },
+    "pytest": {
+      "version": "9.1.1",
+      "installed_record_sha256": "9b72bdfee288f7ba0b462d66b271ef0ed9c1cc53105c409c05f3a69578c32042"
+    },
+    "pytest-cov": {
+      "version": "7.1.0",
+      "installed_record_sha256": "c9146307c6bbd56b36fa8e745d192560b9d74903bdb5af0d24d09cc8f3743de5"
+    },
+    "python-dateutil": {
+      "version": "2.9.0.post0",
+      "installed_record_sha256": "ea009219f435165e7013386035f57b84d75e0676dec16cefcf99db3310324aa2"
+    },
+    "pytz": {
+      "version": "2026.3.post1",
+      "installed_record_sha256": "a14f3a2318bc6eacd20bcfd119de1323a993a7d6bc91df24d04ed3282a058035"
+    },
+    "pyyaml": {
+      "version": "6.0.3",
+      "installed_record_sha256": "aed619f37ca8c92e55fb193f9dcbd50f5a15c71624017d0158ea6b6dc5976c17"
+    },
+    "regex": {
+      "version": "2026.9.10",
+      "installed_record_sha256": "fce78f139e49b494ce3ce8f61a501eba84b75d3ed4fc544f33f7dbacedbef95e"
+    },
+    "requests": {
+      "version": "2.34.2",
+      "installed_record_sha256": "4882c2159dc838fdf38cce6ac86cbe9fe5697b6c02ad1986ef8594ad6f71b0a3"
+    },
+    "ruff": {
+      "version": "0.16.8",
+      "installed_record_sha256": "7d6d1607aea42a9129d0885e0a52734c33959059d96ea801b1e671d267df9f0e"
+    },
+    "safetensors": {
+      "version": "0.8.0",
+      "installed_record_sha256": "92d150610632418cad3a83129b67543b197deecd84af05684026f71be112f67d"
+    },
+    "scikit-learn": {
+      "version": "1.9.1",
+      "installed_record_sha256": "a552979c0a7b8254e73c8f78d891f3593c103e750d393356aeab9342282ffc49"
+    },
+    "scipy": {
+      "version": "1.17.1",
+      "installed_record_sha256": "a436eab649f663854b622836c6c4b82fcf7dd4ae5e9bb971d614c90db56fe629"
+    },
+    "setuptools": {
+      "version": "84.0.0",
+      "installed_record_sha256": "d92c77bac0fd1a6bdc6ebbbf19bdb280cb6f8eeed2837b9e8e4aa8d1211d8204"
+    },
+    "shiboken6": {
+      "version": "6.8.3",
+      "installed_record_sha256": "e4aba9adc006c09468cb338a0f4342b46fdc71ae58cb5d1077f2bce36e01c786"
+    },
+    "six": {
+      "version": "1.17.0",
+      "installed_record_sha256": "b4da9e24e598662bf65a3e2314bf54cb7d88a8cb29e42b5dfcb50d6bb746b777"
+    },
+    "sympy": {
+      "version": "1.14.0",
+      "installed_record_sha256": "893eda995d6daccb7d46bb12d629c4a23823c1a12537494d46831df9befc6de8"
+    },
+    "threadpoolctl": {
+      "version": "3.7.0",
+      "installed_record_sha256": "544f4211948b2d113d61032732b27c6933504d394e66789b03184b28f5fef29f"
+    },
+    "tokenizers": {
+      "version": "0.22.2",
+      "installed_record_sha256": "b83af6099bdb8d35ac3bb8282e60a2b4af05f51de5a974949cc377af898863d5"
+    },
+    "torch": {
+      "version": "2.7.1+cu126",
+      "installed_record_sha256": "e842489fd3a0ae90133e156acaacca724fd7d4380279b26afe6ddbe2e419a2e0"
+    },
+    "torchvision": {
+      "version": "0.22.1+cu126",
+      "installed_record_sha256": "27ff80a41c3f935179e7e8b3f796df6c03a2cff3730d88faabcb6e458a773b72"
+    },
+    "tqdm": {
+      "version": "4.70.1",
+      "installed_record_sha256": "8a2e8c88f5d3f25d1d6249c1d02e2d45de1f9341703328cf45de03262566a1be"
+    },
+    "transformers": {
+      "version": "4.57.6",
+      "installed_record_sha256": "2a4e55241074e380ae2dffd523f312152a5dea18cd39d4c5c666dbdd8da34c65"
+    },
+    "typing-extensions": {
+      "version": "4.16.0",
+      "installed_record_sha256": "bef8a87e9866f1a161c8eb7a1b1c1af3a2d81b6cecf39368228972c0078d1988"
+    },
+    "tzdata": {
+      "version": "2026.4",
+      "installed_record_sha256": "f8b667c761ceedcb68942b378d61fdc802a3c78b3ae562de580c33ff769abc0d"
+    },
+    "urllib3": {
+      "version": "2.8.0",
+      "installed_record_sha256": "28ce41074d096573a52eb30834461c497fb5b817e58cda0a4eea661969a84360"
+    },
+    "wheel": {
+      "version": "0.48.0",
+      "installed_record_sha256": "43e9c2b3b9be5a51da5585bf38293640659399ff3c37e3a47fbe9c7785522eb7"
+    }
+  },
+  "package_hash_scope": "installed distribution RECORD text SHA256; not a claim all installed bytes were rehashed",
+  "dependency_lock_sha256": {
+    "requirements-win-cu126.lock": "8d238370a59677ee3e42534b4fcfb3597caa204b091ea6ff08dfb595a25ca5ed",
+    "requirements-windows-ui.lock": "272e449e05a6083018db8039d2891de0ca893532fa41e725e4d67042fb7d00fc",
+    "pyproject.toml": "d0daf13f9b7fa8cb1eade275b6f93e2e05dd6b1175629787143b1e8a9221dd70"
+  },
+  "model_repository": "OpenGVLab/InternVL3-2B-Instruct",
+  "model_revision": "f6c7b60375759170fd49f5e9e298e2178485c5ba",
+  "weights_sha256": "b69fcfb5cd97b91b52022642d88da91201487aa73750fa8b14a0e6591a5a9e2d",
+  "controlled_patch_sha256": "e9374e89a0a0668af5cdd56ebf43a170fd1ff47798a9027cbdc6223754654c95",
+  "runtime_manifest_sha256": "defe67e23db3f13877c618bf5cc7ec1bf2df01b7eda946e8caa1fc678e2eac9d",
+  "config_sha256": {
+    "configs/agent_internvl_development.toml": "05b5d92a28659630cd5a5e2f9593ffd06241ab2c4f7a5379c82f7e43f41f20d1",
+    "configs/agent_mock.toml": "ecf86949af5d8038903c067a71b1682a85176f27d083b55d1e5001e7266e4c2b",
+    "configs/models.toml": "7e95d50174d03e5b30e14885250234bc95d55aadded1ed4155a26b5915339e0a"
+  },
+  "source_file_sha256": {
+    "scripts/internvl_acquire.py": "ef20f8d5d041606d6eaf52f6470584fc9c817ca1aa876f7f57439546e190c118",
+    "scripts/internvl_capability_report.py": "76753cfeec3e853b229e30178b0f1a882be5db180304800845c180347e4e1a93",
+    "scripts/internvl_prepare.py": "c722312f9202d16518e1d6cbfa72dea498e511d2907f47c19f87f35fdc4b03b1",
+    "scripts/internvl_report.py": "9453d823d0bb33c40ed0801dde486ce8f123682f0144d33c102524c377adb650",
+    "scripts/phase2_acquire.py": "f22974481d3080e4f13f5bd2a4042061c42318a04cb52f5222e099a0dd2e3c04",
+    "scripts/phase2_language_report.py": "ba5872528552b55150edf5d69ac71e3ef247ef590cf0420a09544ba1760fb422",
+    "scripts/phase2_prepare.py": "bf161c9f8d1316679026d0f073df40eadff585806dbb450ebec7ecb8e818605e",
+    "scripts/phase2_prepare_repair.py": "27ae8942796b7b81e105808d001884082b277804a89e36bde8887b8adfeb3c19",
+    "scripts/phase2_repair_report.py": "21452e081575c2aba73296830d4fa1577605d5553c60090b62b3b18f4f609095",
+    "scripts/phase2_report.py": "8cff2ca7fd56b7a8ee8a4b895b24e0f7295799872590be35587adfda1ea338e6",
+    "scripts/real_agent_smoke_report.py": "9eada12540f6f5fa72595aeb99cc449e35bd029650cce24b6ee3196118621a07",
+    "scripts/verify_environment.py": "ade45ea89eb37b3b11b5286e1998bdb6e0cc86e588f1f791c159c12736772428",
+    "src/local_vision_agent/__init__.py": "b79f3ff6da8ad8af0d09590f7c6936fb4a621f2e2948a06aee8d7d399256f806",
+    "src/local_vision_agent/agent.py": "29f0bc2345eda236bc8656c2d761a27da9b472225f7dbbc0c681490b75503627",
+    "src/local_vision_agent/app_camera.py": "02de92c6d22a3b31b0dacfa7887fb098e67cdb67685874c15258becf2dc1f5cd",
+    "src/local_vision_agent/app_controller.py": "85d785bd97ce92ddcceaf375665c8ad55dabea1783136297a20eba49d68bd78d",
+    "src/local_vision_agent/app_export.py": "2d47f4be74c3e333c0bb2ca0a84a6f34e6c2f57055a10031d3c724365c5067f6",
+    "src/local_vision_agent/app_export_schema.py": "15d7f8fb6a6d2434a8b3c538743d9b3669f20d5ccbf9b77d628bd94efd7e15f8",
+    "src/local_vision_agent/app_receipts.py": "917e247dde37d71a7a5b4f51717748236510dffb6cb0c35aa9a121fb9874aa4c",
+    "src/local_vision_agent/app_session.py": "0043d259198ca32030116d02a94ce2f3f56ef9c5a14dbf024103bd8659205abb",
+    "src/local_vision_agent/app_storage.py": "777ecf3ca0ff9ceacdb9d4d92baf9b24e11ae3e4bfc77e07d127ca07e35e5d6c",
+    "src/local_vision_agent/app_webcam_record.py": "3de33e8964fd7269e85a556d2832f105f874bb493025172be3bb5253a0db0afe",
+    "src/local_vision_agent/app_worker.py": "2eb8f5befe7fffa157304f767cb891d57888da16cdbed2b9f76801e9038b52a8",
+    "src/local_vision_agent/capability_gate.py": "dc8036364805e0c1c76030809c0966a7b40061849140af1e8d3588f0594a6513",
+    "src/local_vision_agent/contracts.py": "10e93a1237ebf956f9e0034783ab7f1a6d3b75760cd134e81d5fe30f10a187f4",
+    "src/local_vision_agent/evaluation.py": "7bc2e67ac155451395f5f33736fb458555b570c0c8633328cc73221d1970a6a7",
+    "src/local_vision_agent/gpu_guard.py": "2c67e1e0094ed3b04da0261989b8e618a7b7cada35e86adf2dcdc68cd5f36774",
+    "src/local_vision_agent/image_input.py": "d75c297f019b5163eb2d63d7606799e4ee0fb3d1cb9d259ead19b64191f1d7f1",
+    "src/local_vision_agent/internvl_adapter.py": "1d56119ec3f07dc2ed7b3c9603a25b2b6b7f40636499b6ec150a0e9c69a5f355",
+    "src/local_vision_agent/internvl_backend.py": "f3578a6732ed4b9e12e2dbd677207ae1ea066d162f10c94b7c5dc34b400564b1",
+    "src/local_vision_agent/internvl_contract.py": "ff8f421ca13ab64327ab015925a5933f2e8fec9899454d2bc97bc1de0fdd064e",
+    "src/local_vision_agent/internvl_policy.py": "d62ef0614c3eff22a76f446e39a1133959537319391c44667cc388d9127e9f68",
+    "src/local_vision_agent/internvl_rpc_worker.py": "6bd82b2729a1c561b3b0ec6658ae9782122feb129a313440b24fd0e6eb1f9488",
+    "src/local_vision_agent/internvl_transport.py": "0f429e54bc87819cc80dfac5074b42e2792ae1cb89b9262f240de3df69fc9c1b",
+    "src/local_vision_agent/internvl_worker.py": "9760648ffc0ccb61a4d899dcebe7394a9136d9d1ca0abb91ada31ac061d20671",
+    "src/local_vision_agent/language_diagnostic.py": "6d69b2add61957b7e9c38c7af2c9de1c52e15c91cea887f9a81810155eec6523",
+    "src/local_vision_agent/mock_adapter.py": "51f4af90227dd7a7975f2ebf4a39b58830872e895fcd04371e6dd2a1ca87fdc3",
+    "src/local_vision_agent/mock_cli.py": "a152dbc3dc67174385bd48943d926340985f89adf3fe699f75b9cfa302408dd3",
+    "src/local_vision_agent/pilot_cleanup.py": "04f1fcc4f95f75d26b9c3a452c1322fe4dae8681f87c2483d7e9ba44ea103d58",
+    "src/local_vision_agent/pilot_ipc.py": "549d58d70c4875ec9b65d66a8c8eea2726e114ba33d7deff248ad8421eae2116",
+    "src/local_vision_agent/pilot_policy.py": "3e24fff74baabdbf8583f342f5c6533b69e626d10f60d993370e2387bd9eb0f0",
+    "src/local_vision_agent/pilot_supervisor.py": "67b1af1ecd13801445a71b1f62d93b89569028c2d5bdd4b5d558a1b505770662",
+    "src/local_vision_agent/pilot_supervisor_repair.py": "9ec1ae1eb123271141494bd2b9f606e7e0512a9a1126078e9555cf65570218c0",
+    "src/local_vision_agent/pilot_worker.py": "f5e8bc20c36681612dcb876c3e317bd230cc00216ff8019cb45711888fd43d72",
+    "src/local_vision_agent/real_agent.py": "7a9e7be00a7fe3d53b2133f3441132b0c625571b5a8b22b4a2ef307dba679604",
+    "src/local_vision_agent/reporting.py": "d8e4c1595cc4fdf91133a5c2fb07aec7e2640fe75b6a915b56bb233007152269",
+    "src/local_vision_agent/routing.py": "e350fa9ff7868a4bbcbdb2042154b29476240a0928719f16b70fcfbcaa9d4ed7",
+    "src/local_vision_agent/source_input.py": "721edc1ae709017517f51c40985bd89e2f4cf07dfda07f049d4992dbb7187e98",
+    "src/local_vision_agent/tool_executor.py": "a97a4c850b61de80c9d7312a220a23d027eb41fe557bab7a83a5dfde9395a3e4",
+    "src/local_vision_agent/windows_app.py": "d9ba9cc6726ad5ed5e85e2f9e361d904934a5e0ef11ee7e673b7151e61ad6de5",
+    "src/local_vision_agent/windows_job.py": "e81c9d5d67e5d201daf2bbde74e47e8b110f6d7750c3a152a4c91d2993098544",
+    "tests/test_agent.py": "e7f258ac7f23e91bb3183b16c788522c2f9a96be1a4a6e86f27e7c38fe93d427",
+    "tests/test_app_export.py": "a64adf6bd361b1a892af4a9732619ee447e009cc1c04f6664b4942681c02af2a",
+    "tests/test_capability_gate.py": "1d313dc42f773538b98d2b564294dfe892b4387bd3bb101dfc0a349c435788ea",
+    "tests/test_evaluation.py": "51a97e08573cc3e7cc661f3cb85d438bad8925c16d95e9329cd73ae203072b6a",
+    "tests/test_gpu_guard.py": "94e38153a031c52d7b866318d0cf2b6ba0639867aa3fefae4e23fba0c52f1e33",
+    "tests/test_internvl_adapter.py": "8caf0e7102aade8f3ba204331c64fdcf91a0da91ae99339569d3ba5e9713291b",
+    "tests/test_internvl_policy.py": "1fce0baf1f71478f5bf2fc37dc4a01dad9157c4effe8f8d8db1a7b26ca1af8e0",
+    "tests/test_language_diagnostic.py": "a008bd12e224036fb9a2c341feb317a2f07f3f5f37ef1f9d0c99fec0b39ea5b6",
+    "tests/test_pilot.py": "1447b2da3a7ddce8664d13380f5ed672850aac8e10e678b6d3096c7991b918db",
+    "tests/test_pilot_repair.py": "cb463a81095d61c02fc282f41353170c9062027157f2c00bc789e53a94f43424",
+    "tests/test_routing.py": "38528478a06953a68d5942a98d00b501109f4e6469506cee93be4db6a869abc5",
+    "tests/test_source_input.py": "a64194985af9de9ebf01ef37af6e7c5116e8215b41a2bec1e68d3733f589e420",
+    "tests/test_verification_budget.py": "f45af8818c103db3d48110817e582f74b650a509744073608148622f7aae5f56",
+    "tests/test_windows_app.py": "1f07415ead4270177eb23b83ad7098e30e15b721f2ef9bacb36f99f9bf558dd5"
+  },
+  "source_file_lf_normalized_sha256": {
+    "scripts/internvl_acquire.py": "1ec88dec6e5f47c24b746604b8384dfc95788b20de10b627416fc2a11e7836b3",
+    "scripts/internvl_capability_report.py": "8694e607a801ea96a2b2691c1703902ebfba8328baf7978ebb52de1c22f481b5",
+    "scripts/internvl_prepare.py": "c722312f9202d16518e1d6cbfa72dea498e511d2907f47c19f87f35fdc4b03b1",
+    "scripts/internvl_report.py": "9453d823d0bb33c40ed0801dde486ce8f123682f0144d33c102524c377adb650",
+    "scripts/phase2_acquire.py": "f22974481d3080e4f13f5bd2a4042061c42318a04cb52f5222e099a0dd2e3c04",
+    "scripts/phase2_language_report.py": "ba5872528552b55150edf5d69ac71e3ef247ef590cf0420a09544ba1760fb422",
+    "scripts/phase2_prepare.py": "bf161c9f8d1316679026d0f073df40eadff585806dbb450ebec7ecb8e818605e",
+    "scripts/phase2_prepare_repair.py": "27ae8942796b7b81e105808d001884082b277804a89e36bde8887b8adfeb3c19",
+    "scripts/phase2_repair_report.py": "21452e081575c2aba73296830d4fa1577605d5553c60090b62b3b18f4f609095",
+    "scripts/phase2_report.py": "8cff2ca7fd56b7a8ee8a4b895b24e0f7295799872590be35587adfda1ea338e6",
+    "scripts/real_agent_smoke_report.py": "f1fb36ad83167717e9bd3e7f6164fdee4656c8665645828b8cf053bebcb5faf8",
+    "scripts/verify_environment.py": "ade45ea89eb37b3b11b5286e1998bdb6e0cc86e588f1f791c159c12736772428",
+    "src/local_vision_agent/__init__.py": "b79f3ff6da8ad8af0d09590f7c6936fb4a621f2e2948a06aee8d7d399256f806",
+    "src/local_vision_agent/agent.py": "4e693ba382c30d2c1f4a012758fb592cbc695ed3596c47569a128526cc5e3e7d",
+    "src/local_vision_agent/app_camera.py": "f11a018ac8d90e21e643c70f604d5c3548a46fbaca5bf6acd8b817c5d61a3982",
+    "src/local_vision_agent/app_controller.py": "85d785bd97ce92ddcceaf375665c8ad55dabea1783136297a20eba49d68bd78d",
+    "src/local_vision_agent/app_export.py": "8cc01332d77067664c6eb38efcd5ec1302a34a1d8f129b5a4c903e4b534c04ba",
+    "src/local_vision_agent/app_export_schema.py": "68217c5c60c7546ae7c8b8bb4e5432c01566bc679db556e56ce2cc51a97f7af3",
+    "src/local_vision_agent/app_receipts.py": "917e247dde37d71a7a5b4f51717748236510dffb6cb0c35aa9a121fb9874aa4c",
+    "src/local_vision_agent/app_session.py": "dff9948b9fca166679c73a92d768160271b949af2604b72b5810b7de6b79d0c5",
+    "src/local_vision_agent/app_storage.py": "c0636b49ecb51ae417e4942c8f9a64d387690b0b15851b8192af35417c1a59d5",
+    "src/local_vision_agent/app_webcam_record.py": "3de33e8964fd7269e85a556d2832f105f874bb493025172be3bb5253a0db0afe",
+    "src/local_vision_agent/app_worker.py": "bd2a29da1f40fd0592bea0a7f265c877f1b044b26029ee14c995d0a1db8676bd",
+    "src/local_vision_agent/capability_gate.py": "1f21b78150d8f81f64e103842286c3a25adcce03d7d3c2de45578a700004bf5a",
+    "src/local_vision_agent/contracts.py": "7ee4838b667f5ece352c70a88ba84d25aa2b571d01cef3542cc9227d37e8d2dc",
+    "src/local_vision_agent/evaluation.py": "7bc2e67ac155451395f5f33736fb458555b570c0c8633328cc73221d1970a6a7",
+    "src/local_vision_agent/gpu_guard.py": "2c67e1e0094ed3b04da0261989b8e618a7b7cada35e86adf2dcdc68cd5f36774",
+    "src/local_vision_agent/image_input.py": "d75c297f019b5163eb2d63d7606799e4ee0fb3d1cb9d259ead19b64191f1d7f1",
+    "src/local_vision_agent/internvl_adapter.py": "705de02563b726bbe8c05687bb2204ad142c34c82cd2d02ba8a5a2632a05bbf5",
+    "src/local_vision_agent/internvl_backend.py": "a4d8db35cf4ef8439470cb6cfa97b61bd9119ffda6989247a722382684703104",
+    "src/local_vision_agent/internvl_contract.py": "6069e2c40e770acca1cf5b9d20fa551408b73bd7207b1037ec9a6d35d9e675bc",
+    "src/local_vision_agent/internvl_policy.py": "e8b981dca42b50a34856120360e907522a2b67db62d72f9edcad5bfb18a60a72",
+    "src/local_vision_agent/internvl_rpc_worker.py": "2c54cad376842bc0901833c1d88ebabab7f10afecc3f81e1ea108ecb90e70f6d",
+    "src/local_vision_agent/internvl_transport.py": "d82cdf0ba2b6ce12bd4fd2c19b8dfc57584bacb759471b4f3314e1dba30c57c4",
+    "src/local_vision_agent/internvl_worker.py": "3878fbf9b5468500f45f866ac1cb03915cfd141a49e1de125c2ccb2550b81191",
+    "src/local_vision_agent/language_diagnostic.py": "6d69b2add61957b7e9c38c7af2c9de1c52e15c91cea887f9a81810155eec6523",
+    "src/local_vision_agent/mock_adapter.py": "51f4af90227dd7a7975f2ebf4a39b58830872e895fcd04371e6dd2a1ca87fdc3",
+    "src/local_vision_agent/mock_cli.py": "a152dbc3dc67174385bd48943d926340985f89adf3fe699f75b9cfa302408dd3",
+    "src/local_vision_agent/pilot_cleanup.py": "04f1fcc4f95f75d26b9c3a452c1322fe4dae8681f87c2483d7e9ba44ea103d58",
+    "src/local_vision_agent/pilot_ipc.py": "549d58d70c4875ec9b65d66a8c8eea2726e114ba33d7deff248ad8421eae2116",
+    "src/local_vision_agent/pilot_policy.py": "3e24fff74baabdbf8583f342f5c6533b69e626d10f60d993370e2387bd9eb0f0",
+    "src/local_vision_agent/pilot_supervisor.py": "67b1af1ecd13801445a71b1f62d93b89569028c2d5bdd4b5d558a1b505770662",
+    "src/local_vision_agent/pilot_supervisor_repair.py": "7f5dafbb53fdb5c432d3d7561cc729897273afc7d8f321e9eefca2191cbdba03",
+    "src/local_vision_agent/pilot_worker.py": "f5e8bc20c36681612dcb876c3e317bd230cc00216ff8019cb45711888fd43d72",
+    "src/local_vision_agent/real_agent.py": "6e676a5f53eaa93bc05d1648f201636c2b11d8a2e50b51912d54122db246bb0b",
+    "src/local_vision_agent/reporting.py": "596149da9958979712c0172bfe237d929807ff8cc60b9763917901a16b4b30a1",
+    "src/local_vision_agent/routing.py": "e350fa9ff7868a4bbcbdb2042154b29476240a0928719f16b70fcfbcaa9d4ed7",
+    "src/local_vision_agent/source_input.py": "f45bbe0bf39d8296a779b627c7b4e956d08eacfcf794e9086cfd1fce66f5fe75",
+    "src/local_vision_agent/tool_executor.py": "a97a4c850b61de80c9d7312a220a23d027eb41fe557bab7a83a5dfde9395a3e4",
+    "src/local_vision_agent/windows_app.py": "a0b56300889a0649d0f123e4a1aed102c5d83c0db785a8cc80f1574914351db0",
+    "src/local_vision_agent/windows_job.py": "e81c9d5d67e5d201daf2bbde74e47e8b110f6d7750c3a152a4c91d2993098544",
+    "tests/test_agent.py": "5b875cc84ed845c392ee4de5d0e2b0a8345d72f9d157e2f175aee2a10a3b12a3",
+    "tests/test_app_export.py": "00569bd714d012311759be43536c0966d66bb005c1ea5b3f0ef5b4d04d62d73e",
+    "tests/test_capability_gate.py": "20e97f45349463cadead866077016429d5dbdfcef1c3c23beac3694ca972b539",
+    "tests/test_evaluation.py": "51a97e08573cc3e7cc661f3cb85d438bad8925c16d95e9329cd73ae203072b6a",
+    "tests/test_gpu_guard.py": "94e38153a031c52d7b866318d0cf2b6ba0639867aa3fefae4e23fba0c52f1e33",
+    "tests/test_internvl_adapter.py": "6d431a5a988366aaa63a3743b1559f9f0e9a655e36cdfb5cdb813941ed7ca471",
+    "tests/test_internvl_policy.py": "200cb114faaae4f4b90b9a445ef32284c6c3f8aae30c82eb51ba8924e8e3ffa9",
+    "tests/test_language_diagnostic.py": "a008bd12e224036fb9a2c341feb317a2f07f3f5f37ef1f9d0c99fec0b39ea5b6",
+    "tests/test_pilot.py": "1447b2da3a7ddce8664d13380f5ed672850aac8e10e678b6d3096c7991b918db",
+    "tests/test_pilot_repair.py": "cb463a81095d61c02fc282f41353170c9062027157f2c00bc789e53a94f43424",
+    "tests/test_routing.py": "38528478a06953a68d5942a98d00b501109f4e6469506cee93be4db6a869abc5",
+    "tests/test_source_input.py": "a9253dc39c99a80dc6b45df018141601145199ecd6db786aac3a98c914d5204d",
+    "tests/test_verification_budget.py": "7236c33b96727c764b74b3ee12898c433ba62d2cf1f6881b866ca32606533204",
+    "tests/test_windows_app.py": "6f9e349ba2feff3a1797699d88d018d72bb2e0067d46694da7653794480253fc"
+  },
+  "tests": {
+    "count": 180,
+    "pre": "PASS",
+    "post": "PASS"
+  },
+  "mypy": {
+    "module_count": 39,
+    "strict": true,
+    "result": "PASS"
+  },
+  "lint": "PASS",
+  "pip_check": "PASS",
+  "manual_real_gui_validation": "NOT EXECUTED",
+  "physical_webcam_validation": "BLOCKED: NO_QT_VIDEO_INPUT_DEVICES; enumeration returned0",
+  "persistent_cuda_status": "NOT VALIDATED; no new model load",
+  "export_status": "CPU READY; new real4input validation NOT EXECUTED",
+  "export_schemas": {
+    "analysis_summary.csv": [
+      "record_schema_version",
+      "timestamp",
+      "source_type",
+      "session_id",
+      "frame_id",
+      "input_id",
+      "source_width",
+      "source_height",
+      "source_format",
+      "source_bytes",
+      "source_sha256",
+      "normalized_width",
+      "normalized_height",
+      "normalized_sha256",
+      "status",
+      "completion_reason",
+      "stop_reason",
+      "agent_state_sequence",
+      "model_calls",
+      "input_tokens",
+      "output_tokens",
+      "total_tokens",
+      "truncated_call_count",
+      "candidate_claim_count",
+      "verification_attempted",
+      "verification_completed",
+      "verification_supported",
+      "verification_contradicted",
+      "verification_unresolved",
+      "verification_budget_unresolved",
+      "verification_coverage",
+      "analysis_latency_sec",
+      "total_latency_sec",
+      "peak_allocated_mib",
+      "peak_reserved_mib",
+      "peak_device_used_mib",
+      "cleanup_status",
+      "human_rating",
+      "human_note",
+      "human_review_timestamp",
+      "final_report",
+      "error_type",
+      "error_message"
+    ],
+    "model_calls.csv": [
+      "record_schema_version",
+      "session_id",
+      "frame_id",
+      "input_id",
+      "call_index",
+      "agent_state",
+      "prompt_id",
+      "input_tokens",
+      "output_tokens",
+      "latency_sec",
+      "generation_stop_reason",
+      "truncated",
+      "candidate_id",
+      "verification_candidate_text",
+      "verification_model_verdict",
+      "raw_response"
+    ],
+    "webcam_sessions.csv": [
+      "record_schema_version",
+      "session_id",
+      "camera_id",
+      "camera_display_name",
+      "session_start_timestamp",
+      "session_end_timestamp",
+      "configured_post_analysis_interval_sec",
+      "max_analysed_frames",
+      "max_session_duration_sec",
+      "captured_frames",
+      "analysis_attempts",
+      "completed_frames",
+      "partial_frames",
+      "failed_frames",
+      "total_model_calls",
+      "average_model_calls",
+      "total_output_tokens",
+      "average_output_tokens",
+      "mean_analysis_latency_sec",
+      "median_analysis_latency_sec",
+      "min_analysis_latency_sec",
+      "max_analysis_latency_sec",
+      "mean_verification_coverage",
+      "peak_allocated_mib",
+      "peak_reserved_mib",
+      "peak_device_used_mib",
+      "truncated_frame_count",
+      "session_stop_reason",
+      "camera_release_success",
+      "worker_cleanup_success",
+      "model_cleanup_success",
+      "camera_backend_type"
+    ],
+    "engineering_summary.json": "engineering-summary-v1"
+  },
+  "key_document_sha256": {
+    "docs/NEXT_AI_START_HERE.md": "bb4446a4f7a50ed8bbb57a3934e4ba1e748f4fcd612a21e8df4cd6f174fd57b1",
+    "docs/PROJECT_ARCHITECTURE.md": "0d420112f092a18059c6c5ec36def358a7c96fee540c31f8cd3b43b914f209b0",
+    "docs/PROJECT_INTERFACE_CONTRACTS.md": "d5afa461aad711bbd921f3a382104a0d9a52796c9f2427801523100515b166ab",
+    "docs/PROJECT_RUNBOOK.md": "1c49ef20fde69f6a2f1f7712c61bf4c78f9c97836e0657b0bf49d5c9196a8046",
+    "docs/PROJECT_KNOWN_LIMITATIONS.md": "1ff8ef259179a94941ba49aba701111aa63b9224e01e5a485bb8e37b3bf082eb",
+    "docs/PROJECT_RESEARCH_CONTEXT.md": "f8a89e84d853ebb4a2ca5d786440506f13895991c0f45d06772145f3cf507683",
+    "docs/PROJECT_RECOVERY_GUIDE.md": "90ec4605f7e49f9088132546b8a9b48b23b4aa16c352b013e314decf205ecb24",
+    "docs/PROJECT_FINAL_VALIDATION_RESULT.md": "75dad1a029c87a90f2ec8f4e2cf950319531552270d811c6b8744836e0a8499e",
+    "docs/THESIS_DATA_EXPORT_DESIGN.md": "944027e37a8c4b71f16352297922e254e32285daa4b918cf03b668d81bb8530c"
+  },
+  "entry_document_sha256": {
+    "README.md": "761973a1467913ba2aa78f95950444c799fea57efde0b77b360283ef81c5e254",
+    "AGENTS.md": "732b0aa1d3950e62f202de6e181d409b9ab120da2b5b43f5d0cff536ff8b8d7c",
+    "SESSION_HANDOFF.md": "153bc6d0198fbfc7813085890726f4e1985e3db439315ae6909b511e4e91cebb"
+  },
+  "known_blockers": [
+    "NO_QT_VIDEO_INPUT_DEVICES",
+    "physical capture/preview/readiness/release unvalidated",
+    "manual GUI plus persistent multi-image CUDA and new real exports not executed"
+  ],
+  "canonical_start_document": "docs/NEXT_AI_START_HERE.md",
+  "next_research_priority": "advisor-directed paper reproduction",
+  "remote_names": [],
+  "push": "NOT AUTHORIZED / NOT PERFORMED",
+  "local_evidence": "artifacts/final-closeout-20261005",
+  "manifest_self_hash": "excluded to avoid circular hash; external backup inventory covers it"
+}

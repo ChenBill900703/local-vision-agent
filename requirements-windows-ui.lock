@@ -1,0 +1,6 @@
+# Windows x64 / Python 3.11. Existing inference environment must not be replaced.
+# Installation requires explicit authorization; use binary-only, --no-deps, --require-hashes.
+PySide6==6.8.3 --hash=sha256:722dc0061d8ef6dbb8c0b99864f21e83a5b49ece1ecb2d0b890840d969e1e461
+PySide6-Essentials==6.8.3 --hash=sha256:3c0fae5550aff69f2166f46476c36e0ef56ce73d84829eac4559770b0c034b07
+PySide6-Addons==6.8.3 --hash=sha256:67548f6db11f4e1b7e4b6efd9c3fc2e8d275188a7b2feac388961128572a6955
+shiboken6==6.8.3 --hash=sha256:bca3a94513ce9242f7d4bbdca902072a1631888e0aa3a8711a52cc5dbe93588f

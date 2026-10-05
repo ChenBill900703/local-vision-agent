@@ -40,6 +40,7 @@ class PersistentTransport:
         self.owns_directory = False
         self.stderr: Any = None
         self.baseline: Any = None
+        self.persistent_images = False
 
     def _watch(self) -> None:
         assert self.sampler is not None
@@ -92,6 +93,7 @@ class PersistentTransport:
             "model_loaded",
             "image_start",
             "image_ready",
+            "image_ended",
             "call_start",
             "visual_done",
             "call_done",
@@ -190,6 +192,7 @@ class PersistentTransport:
                     str(self.directory),
                     "--configuration",
                     str(configuration),
+                    *(["--persistent-images"] if self.persistent_images else []),
                 ],
                 cwd=project,
                 env=environment,
@@ -240,7 +243,10 @@ class PersistentTransport:
                 raise AgentError("RPC_REQUEST_TOO_LARGE")
             self.process.stdin.write(line + "\n")
             self.process.stdin.flush()
-            return self._receive(identifier, op, timeout)
+            result = self._receive(identifier, op, timeout)
+            if op == "end_image":
+                self.image_deadline = 0.0
+            return result
         except Exception:
             self.abort()
             raise

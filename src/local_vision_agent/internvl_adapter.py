@@ -17,13 +17,22 @@ class InternVLAdapter:
     is_mock = False
     capabilities: tuple[str, ...] = ("caption", "query")
 
-    def __init__(self, asset_root: Path, evidence_directory: Path, config: RuntimeConfig) -> None:
+    def __init__(
+        self,
+        asset_root: Path,
+        evidence_directory: Path,
+        config: RuntimeConfig,
+        *,
+        persistent_images: bool = False,
+    ) -> None:
         if type(config) is not RuntimeConfig:
             raise AgentError("MISSING_RUNTIME_CONFIG")
         config.__post_init__()
         self.config = config
         self.directory = evidence_directory.resolve()
         self.transport = PersistentTransport(asset_root.resolve(), self.directory, config)
+        self.transport.persistent_images = persistent_images
+        self.persistent_images = persistent_images
         self.metadata: dict[str, Any] = {}
         self.trace: list[dict[str, Any]] = []
         self.image: ImageInfo | None = None
@@ -117,6 +126,22 @@ class InternVLAdapter:
             if isinstance(exc, AgentError):
                 raise
             raise AgentError("WORKER_FAILURE") from exc
+
+    def end_image(self) -> dict[str, Any]:
+        """Explicit acknowledged boundary, available only to application sessions."""
+        if not self.persistent_images or not self.loaded or self.failed or self.image is None:
+            raise AgentError("IMAGE_RESET_NOT_ALLOWED")
+        try:
+            result = self.transport.request("end_image", {}, self.config.limits.cleanup_timeout_s)
+            if result.get("image_cleared") is not True:
+                raise AgentError("IMAGE_RESET_UNVERIFIED")
+            self.image = None
+            self.trace.clear()
+            return result
+        except Exception:
+            self.failed = True
+            self.transport.abort()
+            raise
 
     def caption(self) -> Answer:
         return self.query(

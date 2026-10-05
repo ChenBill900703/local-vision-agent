@@ -1,56 +1,136 @@
-# CURRENT — Engineering baseline READY / formal design author review, 2026-10-01
+# CURRENT — Final local freeze with known blocker, 2026-10-05
 
-ENGINEERING BASELINE = READY.
-REAL LOCAL AGENT ENGINEERING BASELINE READY — ENGINEERING / DEVELOPMENT ONLY.
-COMBINED GPU VALIDATION = PASS, after author development-usable review and retained-file audit.
-FORMAL EXPERIMENT DESIGN = DRAFT READY FOR AUTHOR REVIEW. No formal execution.
+LOCAL VISION AGENT v1 = FROZEN / PROJECT FROZEN WITH KNOWN BLOCKER.
+BACKUP RESEARCH PROTOTYPE = PRESERVED.
+PRIMARY NEXT RESEARCH ACTIVITY = advisor-directed PAPER REPRODUCTION.
 
-Resume/execution HEAD:54137bf9f0aa4bc39915bd69b3556b89ea5a9adf.
-Exact runtime source:bdf9dd2cb3b5657cf2e33a0efa5829b5b614c694; runtime/config/tests unchanged.
-Resume dirty: modified AGENTS.md,SESSION_HANDOFF.md; untracked combined result document.
-This turn updates documentation only and records ignored review/audit/backup evidence.
-Local documentation checkpoint planned after audit; exact resulting HEAD and final dirty
-state are recorded in artifacts/formal-design-20261001/evidence/checkpoint.json (avoids a
-self-referential commit hash). No push. Resolve current HEAD when resuming, verify that record.
+Read docs/NEXT_AI_START_HERE.md FIRST. Repository evidence overrides chat memory.
+Final HEAD is the exact annotated ref local-vision-agent-v1.0-frozen^{commit}, branch main;
+resolve git rev-parse, with literal finalHEAD/tag/tree recorded in local
+artifacts/final-closeout-20261005/final_git_receipt.json. Expected final tree clean.
+Pre-freeze parent cf4ec1455b8a12026d0ebd849e3a6cb1b9514cce is historical, not finalHEAD.
+Own-commit literal hash cannot be embedded in its hashed contents; tag/receipt resolves it.
 
-Consumed run SMARTPHONE_COMBINED_OUTDOOR_20260930_V1 remains immutable.14 raw/input hashes
-matched; original3472x4624JPEG -> automatic384x512 -> existing448tile, actual pinned
-InternVL/BF16/cuda0/MethodD.8calls,8candidates,6slots/6completed,2budget-unresolved,75%coverage,
-no ninthcall. COMPLETED_WITH_PARTIAL_VERIFICATION / VERIFICATION_BUDGET_EXHAUSTED.
-Offline/resource/placement/cleanup/process/device recovery PASS within tested scope.
-Retained pre/post110CPUtests,Ruff,strictMypy29 PASS; no tests or GPU rerun in this docs turn.
+Existing real single-image engineering baseline READY in historical scope. Windows UI/manual/
+Webcam software/export CPU READY.180CPUtests/Ruff/strictMypy39/pipcheck PASS before enumeration;
+post-attempt results retained in final-closeout evidence and final validation report.
+QtMultimedia enumeration returned0devices: NO_QT_VIDEO_INPUT_DEVICES. STOP before camera open,
+preview or any manual/GPU invocation. No retry. Physical Webcam NOT VALIDATED; persistent
+multi-image CUDA NOT VALIDATED; no4real outputs/human review fabricated. No inference/CUDA/GPU
+query or new dependency. Same pinned model f6c7b60375759170fd49f5e9e298e2178485c5ba,
+BF16/cuda:0/single448, config configs/agent_internvl_development.toml SHA256
+05b5d92a28659630cd5a5e2f9593ffd06241ab2c4f7a5379c82f7e43f41f20d1 unchanged.
+CSV/export remains canonicalJSON-derived/CPUvalidated, not new real4input validation PASS.
 
-DEVELOPMENT HUMAN SANITY REVIEW (author, verbatim):
+Final author request e6e075e5 explicitly authorized one bounded validation and local commit/tag,
+no push. No remote configured. All raw/historical negative evidence preserved and ignored.
+Known hallucinations/over-acceptance/truncation/single-tile detail loss remain; no research/RQ
+success. Root PROJECT_FREEZE_MANIFEST_2026-10-05.json inventories sources/deps/assets/docs.
+Final result and restart: docs/PROJECT_FINAL_VALIDATION_RESULT.md; runbook/interfaces/recovery
+and backup research context in docs/PROJECT_*.md. OldREADME archived, histories below unchanged.
 
-> DEVELOPMENT HUMAN SANITY REVIEW：整體可用，主要場景與主要物件大致能辨識，但保留明顯語意錯誤與 hallucination。原圖中的裝飾主要為松果，不宜描述為金色球形飾物；聖誕樹底座的顏色／材質／四腳描述不準確；Caption 提到的「帶有透明蓋子的灰色杯子」在原圖中未見，視為明顯 nonexistent-object hallucination。背景主要為窗戶／遮光簾，描述為淺灰色背景牆亦不精確。Caption 與 Scene 均因 128-token limit 截斷。同模型 verification 對部分不準確 claim 仍回答 supported，顯示 over-acceptance/self-confirmation limitation。基於本階段僅驗證 engineering usability，我評為 development-usable；這不代表 accuracy、hallucination reduction 或 verification correctness PASS，也不作正式論文結果。
+Unfreeze ONLY when author explicitly requests it, names bounded repair/test scope, confirms
+connected rights-safe camera/scene/manual image, and renews one hardware allowance with NEW ID.
+Rerun CPU/hash gates -> TEST A -> only ifPASS one manual+<=3camera frames, one persistentload,
+5s waits, no retry. No model/prompt/UI feature expansion, dataset or publication inferred.
+Stop development; paper reproduction needs its own author-directed task.
 
-No quantitative score inferred. No generalaccuracy, hallucinationreduction, verification
-correctness, RQ2/RQ3/RQ4 success, D superiority, significance or production readiness.
-Source/input/raw report/previous technical audit not rewritten. Historical partial indoor,
-synthetic smoke, all InternVL pilots and Moondream negative results remain unchanged.
-Review/audit/prior CURRENT snapshots:artifacts/formal-design-20261001/evidence/.
+# Historical CURRENT — Thesis data export CPU READY, 2026-10-05
 
-Created docs/ENGINEERING_BASELINE_DECISION.md and:
-- docs/FORMAL_EXPERIMENT_DESIGN.md
-- docs/FORMAL_DATA_PROTOCOL.md
-- docs/FORMAL_METRICS.md
-- docs/FORMAL_METHODS_ABCD.md
-- docs/FORMAL_STATISTICAL_PLAN.md
-- docs/FORMAL_OPEN_QUESTIONS.md
+Latest user-authorized application/data-layer completion is finished; source architecture and
+model/Agent/prompt/FIFO/GPU/source policies preserved. HEAD cf4ec1455b8a12026d0ebd849e3a6cb1b9514cce,
+authorized dirty code/tests/docs; no new commit/push or dependency.180CPUtests/Ruff/strictMypy39/
+pipcheck PASS. Three CSV exports + engineering_summary.json, atomic author review sidecars,
+three UI tabs, canonical Webcam lifecycle and read-only worker receipt capture implemented.
 
-Draft selections:single448square P1,128tokens/call,8calls,400paired COCO2017-val subset
-images plus40design images, full raw atomic human scoring and separate endorsement view.
-Author approval pending. Exact image IDs/hashes/rights, independent references/annotators,
-institutional requirements, CPU-tested scoring and formal runner/measurement freeze remain
-BLOCKERS. No data acquired; no prompts tuned; no formal outputs inspected. Feature expansion
-frozen: no Webcam/GUI/OCR/detector/video/secondVLM/quantization/fine-tuning/cloud/new runtime.
-No more development GPU execution authorized, no consumed run retry.
+REAL LOCAL AGENT ENGINEERING BASELINE = READY (historical scope).
+WINDOWS UI = CPU READY. MANUAL IMAGE ANALYSIS = CPU READY. WEBCAM AUTO ANALYSIS = CPU READY.
+THESIS DATA EXPORT = CPU READY.
+PHYSICAL WEBCAM VALIDATION = WAITING FOR AUTHOR HARDWARE / NOT EXECUTED.
+REAL PERSISTENT MULTI-FRAME CUDA = NOT YET VALIDATED.
 
-Exact next action: author reviews six-document draft and decisions/blockers. Only after
-review request separately scoped acquisition/evaluation-preparation and eventual formal
-execution authorization. Do not treat baselineREADY or this design as permission to run.
-Prior CURRENT retained byte-for-byte in evidence/before-SESSION_HANDOFF.md;
-historical sections below retained byte-for-byte and never override CURRENT.
+No GPU query/CUDA/model inference/physical camera/formal evaluation. Only CPU FakeCamera,
+Qt stubs and synthetic offscreen GUI used; sample1manual+3fakeframes is NOT research evidence.
+All samples NOT_REVIEWED; GPU fields NA; canonical raw outputs unchanged by exports/review.
+Prior raw14hashes and frozen inference modules unchanged. Original negative evidence retained.
+Result/schema/audit: docs/THESIS_DATA_EXPORT_IMPLEMENTATION_RESULT.md and
+ docs/THESIS_DATA_EXPORT_DESIGN.md; evidence artifacts/thesis-export-20261005/.
+New frozen source manifest docs/THESIS_DATA_EXPORT_CPU_MANIFEST_2026-10-05.json.
+
+Next action only after author hardware/explicit GPU authorization:
+ docs/WINDOWS_WEBCAM_PHYSICAL_VALIDATION_CHECKLIST.md and
+ docs/WINDOWS_WEBCAM_VALIDATION_SCOPE_ADDENDUM_2026-10-05.md.
+Proposes1manual+3camera analyses under ONE persistent load,5s post-analysis waits,no retry.
+Old10/01 camera-only amendment remains NOT EXECUTED and superseded for new-source execution;
+its old source hash and camera-only scope cannot authorize this changed GUI/manual test.
+No new run allowed by this handoff. Stop; do not infer hardware availability from date.
+
+# Historical CURRENT — Windows application CPU READY, 2026-10-01
+
+User approved the four pinned Qt packages and CPU-first implementation; completed.
+REAL LOCAL AGENT ENGINEERING BASELINE = READY (historical validated still-image path).
+WINDOWS UI = CPU READY. MANUAL IMAGE ANALYSIS = CPU READY. WEBCAM AUTO ANALYSIS = CPU READY.
+PHYSICAL WEBCAM GPU VALIDATION = PENDING AUTHORIZATION / NOT EXECUTED.
+
+Installed only PySide6/Essentials/Addons/shiboken6 6.8.3; zero prior distributions changed.
+QtMultimedia backend; no OpenCV.150CPUtests/Ruff/strictMypy35/pipcheck PASS.
+Native Qt GUI, queued worker, persistent opt-in multi-image RPC reset, fresh per-image Agent,
+sequential5s post-analysis scheduling, max20frames/1800s defaults, Chinese report/localhistory,
+saveOFF ephemeral cleanup and bounded shutdown implemented. Legacy single-image CLI defaults,
+Agent/prompts/FIFO/config/source normalization/GPUguard/model revision remain unchanged.
+Synthetic offscreen CPU MOCK GUI inspected; Chinese existing-Windows-font rendering corrected.
+Physical camera NOT enumerated/opened; CUDA/GPU/model NOT used. Real multi-image reset and
+camera/device cleanup remain unverified. CPU fixture subprocess proof is not GPU feasibility.
+
+HEAD cf4ec1455b8a12026d0ebd849e3a6cb1b9514cce, authorized dirty code/tests/docs/desktoplock.
+No new commit/push. Exact current source/dependencies frozen in
+ docs/WINDOWS_UI_CPU_READY_MANIFEST_2026-10-01.json.
+Details docs/WINDOWS_UI_IMPLEMENTATION_RESULT.md; final logs and before/after install evidence
+in artifacts/windows-ui-20261001/. Historical combined raw14hashes unchanged; no raw rewrite.
+Author's simplification supersedes large formal-data proposal. No semantic/RQ improvement claim.
+
+Next: author separately approves the frozen prospective
+ docs/WINDOWS_WEBCAM_GPU_VALIDATION_AMENDMENT_2026-10-01.md
+for ONE local physical camera/non-sensitive scene, ONE load, <=3 independent frames,5s waits,
+existinglimits/offline/preflight/cleanup, no retries. Do not execute without that approval.
+All prior GPU allowances consumed. No dataset/extra model/prompt tuning/formal experiment/push.
+
+# Historical — Windows UI dependency authorization gate, 2026-10-01
+
+Exact HEAD cf4ec1455b8a12026d0ebd849e3a6cb1b9514cce; clean at resume.
+Current dirty changes documentation only; no source/config changes or new commit this turn.
+REAL LOCAL AGENT ENGINEERING BASELINE = READY (prior tested path, no regression introduced).
+User explicitly simplified scope to engineering/system thesis: manual JPEG/PNG and sequential
+Webcam still frames through the SAME source/adapter/Agent/report path, Windows PySide6 GUI,
+Chinese results and local history. Large COCO/400-image/annotation proposal SUPERSEDED.
+Original negative results and prior six-document draft retained, no raw run modifications.
+
+Dependency audit:Python3.11.9;PySide6/PyQt6/OpenCV absent. CAMERA DEPENDENCY REQUIRED.
+Propose PySide6,PySide6-Essentials,PySide6-Addons,shiboken6 all6.8.3 (QtMultimedia, no OpenCV).
+Exact Windows wheels/SHA/201768315byte total in ignored evidence; no package installed.
+User attachment sections2/19 mandate stop for installation approval. No GPU/camera used.
+
+WINDOWS UI = BLOCKED — DEPENDENCY AUTHORIZATION REQUIRED.
+MANUAL IMAGE ANALYSIS (GUI) = NOT IMPLEMENTED; existing CLI unchanged.
+WEBCAM AUTO ANALYSIS = NOT IMPLEMENTED; no CPU READY claim.
+PHYSICAL WEBCAM GPU VALIDATION = NOT RUN / PENDING FUTURE AUTHORIZATION.
+No new tests/Ruff/Mypy:documentation-only gate preparation. Retained baseline110CPUtests,
+Ruff,strictMypy29 PASS are historical, not new UI tests.
+
+Created docs/WINDOWS_UI_DESIGN.md,WEBCAM_SESSION_DESIGN.md,
+WINDOWS_UI_IMPLEMENTATION_RESULT.md,THESIS_SCOPE_SIMPLIFICATION_DECISION.md.
+Existing worker rejects second image; next implementation needs explicit per-image reset
+on same backend/persistent model, without changing Agent/prompts/FIFO/safety/CLI defaults.
+Capture->analyse->save/display->wait5s->capture;3–30s interval,20attempts/30min defaults,
+no queue; source frames private/saveOFF, safe stop/close, per-image trace isolation.
+Future GPU amendment intentionally not frozen before CPU READY/exact implementation hashes.
+
+Exact next action: user installation authorization for four pinned Qt packages only,
+<=250MiB download/<=1GiB new environment/cache footprint; no existing inference upgrades.
+Then implement and test CPU/Fake/Qt paths, full suite/Ruff/strict Mypy, before prospective
+max3frame one-load GPU amendment. No dataset/formal evaluation/GPU or unrelated features.
+Authorization/dependency metadata/environment snapshot/prior CURRENT preserved at
+artifacts/windows-ui-20261001/evidence/. Historical handoff suffix below unchanged.
 
 # Historical handoff — Real Agent development implementation, 2026-09-29
 

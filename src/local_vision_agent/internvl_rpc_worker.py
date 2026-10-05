@@ -16,7 +16,9 @@ from .pilot_worker import Evidence
 from .source_input import SourceImageLimits
 
 
-def serve(root: Path, directory: Path, configuration: Path) -> int:
+def serve(
+    root: Path, directory: Path, configuration: Path, *, persistent_images: bool = False
+) -> int:
     evidence = Evidence(directory, pipe=True)
     backend: InternVLBackend | None = None
     exit_code = 1
@@ -27,6 +29,7 @@ def serve(root: Path, directory: Path, configuration: Path) -> int:
         values["source_image_limits"] = SourceImageLimits.from_dict(values["source_image_limits"])
         config = RuntimeConfig(**values)
         backend = InternVLBackend(root, config, evidence)
+        backend.persistent_images = persistent_images
         evidence.emit("response", id=0, op="load", payload=backend.load())
         expected_id = 1
         while True:
@@ -51,6 +54,8 @@ def serve(root: Path, directory: Path, configuration: Path) -> int:
                 )
             elif op == "invoke":
                 result = backend.invoke(Request(**payload))
+            elif op == "end_image" and not payload and persistent_images:
+                result = backend.end_image()
             elif op == "unload" and not payload:
                 close_id = request["id"]
                 exit_code = 0
@@ -77,6 +82,7 @@ if __name__ == "__main__":
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--configuration", type=Path, required=True)
+    parser.add_argument("--persistent-images", action="store_true")
     args = parser.parse_args()
     print(
         json.dumps({"phase": "ready", "pid": os.getpid(), "monotonic": time.monotonic()}),
@@ -85,5 +91,10 @@ if __name__ == "__main__":
     if sys.stdin.readline().strip() != "GO":
         raise SystemExit("SUPERVISOR_HANDSHAKE_REQUIRED")
     raise SystemExit(
-        serve(args.root.resolve(), args.run_dir.resolve(), args.configuration.resolve())
+        serve(
+            args.root.resolve(),
+            args.run_dir.resolve(),
+            args.configuration.resolve(),
+            persistent_images=args.persistent_images,
+        )
     )

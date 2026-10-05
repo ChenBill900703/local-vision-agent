@@ -37,6 +37,8 @@ class InternVLBackend:
         self.started = self.image_started = 0.0
         self.guard = GpuGuard(GpuPolicy(6400, 1536))
         self.loaded_once = False
+        self.persistent_images = False
+        self.image_id: str | None = None
 
     def load(self) -> dict[str, Any]:
         if self.loaded_once:
@@ -140,6 +142,9 @@ class InternVLBackend:
         if self.model is None or self.image is not None:
             raise AgentError("ONE_IMAGE_PER_WORKER")
         self.image_started = time.monotonic()
+        self.image_id = item.input_id
+        if self.persistent_images:
+            self.torch.cuda.reset_peak_memory_stats(0)
         self.image = inspect_image(item, self.config.limits)
         if self.image.sha256 != expected_hash:
             raise AgentError("IMAGE_CHANGED")
@@ -204,6 +209,7 @@ class InternVLBackend:
         self.evidence.emit(
             "call_start",
             call_id=f"call-{self.calls}",
+            input_id=self.image_id,
             request=asdict(request),
             rendered_prompt=prompt,
             input_token_ids=input_ids[0].tolist(),
@@ -259,6 +265,7 @@ class InternVLBackend:
             "stop_reason": "eos" if ids and ids[-1] == eos else "token_limit",
             "call_id": f"call-{self.calls}",
             "worker_status": "healthy",
+            "input_id": self.image_id,
         }
         self.evidence.emit("call_done", **result)
         if (
@@ -271,6 +278,25 @@ class InternVLBackend:
         raw.encode("utf8", errors="strict")
         if elapsed >= limits.per_call_timeout_s:
             raise AgentError("TOOL_TIMEOUT")
+        return result
+
+    def end_image(self) -> dict[str, Any]:
+        """Release image tensors/counters without unloading model or resetting session time."""
+        if not self.persistent_images or self.model is None or self.image is None:
+            raise AgentError("IMAGE_RESET_NOT_ALLOWED")
+        previous = self.image_id
+        self.pixels = self.image = self.image_id = None
+        self.calls = self.output_tokens = 0
+        self.image_started = 0.0
+        gc.collect()
+        self.torch.cuda.synchronize(0)
+        self.torch.cuda.empty_cache()
+        result = {
+            "image_cleared": True,
+            "input_id": previous,
+            "measurement": measure(self.torch, self.guard),
+        }
+        self.evidence.emit("image_ended", **result)
         return result
 
     def unload(self) -> dict[str, Any]:

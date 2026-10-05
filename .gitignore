@@ -44,3 +44,12 @@ Thumbs.db
 
 # User private development-only photos; never commit or publish.
 /development_images/
+
+# Final freeze: local secrets and generated temporary files
+*.tmp
+*.log
+credentials/
+secrets/
+*.key
+*.pem
+/webcam_frames/

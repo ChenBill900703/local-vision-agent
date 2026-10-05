@@ -1,3 +1,16 @@
+# RD-002 scope simplification addendum — 2026-10-01
+
+USER-CONFIRMED by explicit final-product/thesis request; original RD-001 retained below.
+Current working title: Design and Implementation of a Local Agentic Image Understanding
+System on an 8GB Consumer GPU. Final application adds manual image + repeated Webcam
+still inputs, native Windows GUI and local history around the same existing bounded Agent.
+This supersedes only the prior Webcam/GUI exclusions and mandatory large comparative-study
+interpretation. Keep local8GB/model/verification/Chinese/safety and no accuracy guarantees.
+The400-image formal draft is historical, not active. No physical camera/GPU/install approval
+inferred. Full rationale/authorization/limits: [scope decision](THESIS_SCOPE_SIMPLIFICATION_DECISION.md).
+Institution/advisor approval UNKNOWN. Original frozen decision and questions remain historical
+traceability, not fabricated completed RQ2–RQ4 findings.
+
 # Research Direction Decision — RD-001
 
 - Decision ID：RD-001

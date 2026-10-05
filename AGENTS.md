@@ -1,3 +1,39 @@
+# FINAL FREEZE — 2026-10-05
+
+Author final-closeout authorization superseded earlier no-local-commit restriction only for
+this freeze. FROZEN BACKUP RESEARCH PROTOTYPE / KNOWN BLOCKER: Qt enumerated0cameras. No new GPU
+run or physical capture. Existing software/export CPU READY; physical/persistent CUDA not
+validated. Read docs/NEXT_AI_START_HERE.md and CURRENT before any future work. Stop features,
+models/prompts/experiments. Explicit author unfreeze and bounded approval required for further
+changes/hardware. No push/publication authorized. Historical instructions/results preserved below.
+
+---
+
+# Current completed scope — data export CPU READY, 2026-10-05
+
+User explicitly authorized application/data-layer completion in c18948da attachment and asked to finish.180CPUtests,Ruff,strictMypy39,pipcheck PASS. Three CSVs, descriptive summary, atomic author review, tabs and Webcam software audit complete. No model/Agent/prompt/FIFO/preprocessing/guard/limits/dependency changes. No GPU query/inference/physical camera/formal evaluation or push. Physical hardware and real persistent CUDA remain unvalidated. See CURRENT and THESIS_DATA_EXPORT_IMPLEMENTATION_RESULT.md. Old10/01 GPU amendment remains NOT EXECUTED; new prospective10/05 addendum plus hardware checklist require separate explicit authorization. Preserve prior instructions/evidence as history.
+
+---
+
+# Current authorization — Windows application CPU READY, 2026-10-01
+
+User explicitly approved installation and CPU-first implementation after the missing-dependency gate. Only four Qt6.8.3 packages added; all existing distributions unchanged. Native UI/manual/FakeCamera/sequential session/history and opt-in persistent runtime reset implemented.150CPUtests,Ruff,strictMypy35,pipcheck PASS. New real persistent GPU/camera path NOT tested. Prior baseline READY remains historical tested scope. No further GPU/camera execution, installation, dataset, formal experiment or push authorized. Next prospective amendment is docs/WINDOWS_WEBCAM_GPU_VALIDATION_AMENDMENT_2026-10-01.md, NOT EXECUTED. See CURRENT and implementation result. Older missing-dependency stop below is superseded only by the explicit completed installation authorization; retain all history.
+
+---
+
+# Current scope — Windows still-image/Webcam application, 2026-10-01
+
+User explicitly replaces the prior feature freeze for exactly manual image + Webcam
+repeated still-frame input, PySide6 Windows GUI, Chinese display and local history.
+Engineering/system thesis; large COCO/400-image/human-annotation proposal is superseded.
+Existing Agent baseline READY remains; no inference policy/model/limits change permitted.
+See docs/THESIS_SCOPE_SIMPLIFICATION_DECISION.md and CURRENT. CPU/Fake implementation is
+requested, but user mandates STOP for missing PySide6/camera dependency authorization.
+PySide6 and OpenCV absent. No install, physical camera/GPU test, dataset or push authorized.
+Proposed camera backend QtMultimedia in PySide6-Addons, no OpenCV needed.
+No CPU READY until implemented and full CPU/Ruff/strict Mypy pass. No other new features.
+All original histories and negative evidence below remain immutable historical context.
+
 # Current authorization and baseline closeout — 2026-10-01
 
 COMBINED GPU VALIDATION = PASS, ENGINEERING / DEVELOPMENT ONLY.

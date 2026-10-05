@@ -1,3 +1,8 @@
+> SUPERSEDED PROPOSAL — 2026-10-01: user selected the smaller engineering/system
+> application scope. This unapproved large formal-evaluation draft is historical,
+> not an active requirement or execution authorization. See
+> [scope decision](THESIS_SCOPE_SIMPLIFICATION_DECISION.md). Original text follows unchanged.
+
 # Formal methods A/B/C/D v1 — 2026-10-01
 
 DRAFT READY FOR AUTHOR REVIEW / DESIGN ONLY. Selected parameters are prospective;
