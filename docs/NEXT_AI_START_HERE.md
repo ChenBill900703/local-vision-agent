@@ -1,3 +1,10 @@
+# GitHub 備份更新
+
+本次作者已授權私人 GitHub 備份，目的地 ChenBill900703/local-vision-agent。
+main 可以有較新的說明文件提交；下文的 frozen HEAD 指原工程 tag，而非目前 main。
+原 tag、manifest 與工程限制不變。舊 no-remote/no-push 狀態是歷史；本次僅允許私人備份。
+先讀 ../README.md 與 GITHUB_PRIVATE_BACKUP.md，再接續以下原始技術交接。
+
 # NEXT AI — START HERE
 
 LOCAL VISION AGENT v1 = FROZEN / PROJECT FROZEN WITH KNOWN BLOCKER.

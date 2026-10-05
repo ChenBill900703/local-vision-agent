@@ -1,0 +1,13 @@
+{
+  "kind": "CPU QUALITY CHECKS ONLY / NOT GPU EVIDENCE",
+  "original_freeze_commit": "7c0485ff9a83706b72ebc020c151191b0a79c9e7",
+  "sha256": {
+    "cpu-tests.txt": "18fd51e3f36d9bb229cd2a95683f9baab66e2be26a146bf148454a7aa2e92a18",
+    "ruff.txt": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0",
+    "mypy.txt": "3b8f552ab9a16c7f13064ecacca096ebe057ff5d97d648c4720182bcff27fd96",
+    "pip-check.txt": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf"
+  },
+  "tests": 180,
+  "mypy_modules": 39,
+  "no_private_images_or_model_outputs": true
+}

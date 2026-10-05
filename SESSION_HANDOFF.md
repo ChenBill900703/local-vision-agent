@@ -1,3 +1,14 @@
+# CURRENT — GitHub 私人備份授權
+
+作者已明確要求把專案與開發過程提交 GitHub 並設為私人儲存庫。
+目的地 ChenBill900703/local-vision-agent；只推送程式、文件、測試與 Git 歷史。
+此為文件／備份工作，不解凍功能、不新增 GPU 或攝影機測試。舊 no-push 限制僅在本次私人備份範圍被取代。
+原工程凍結 tag local-vision-agent-v1.0-frozen 仍固定在7c0485ff9a83706b72ebc020c151191b0a79c9e7；
+main 後續文件提交不改變原驗證結果。模型／照片／raw artifacts 不上傳。
+閱讀 README.md、docs/DEVELOPMENT_HISTORY_ZH_TW.md、docs/GITHUB_PRIVATE_BACKUP.md；
+技術接手仍讀 docs/NEXT_AI_START_HERE.md。實際 push/visibility 核對留在本機 artifacts/github-private-upload/。
+以下為完整歷史交接，保留原文。
+
 # CURRENT — Final local freeze with known blocker, 2026-10-05
 
 LOCAL VISION AGENT v1 = FROZEN / PROJECT FROZEN WITH KNOWN BLOCKER.
